@@ -44,11 +44,11 @@
 
 
 ## Роли и случаи использования
-![useCaseDiagram](./useCaseDiagram.png)
+![useCaseDiagram](docs/useCaseDiagram.png)
 
 
 ## Композиция (диаграмма компонентов)
-![componentDiagram](./componentDiagram.png)
+![componentDiagram](docs/componentDiagram.png)
 
 
 ## Логическая структура (диаграмма классов)
