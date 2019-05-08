@@ -13,7 +13,7 @@ allprojects {
 
     version = '1.0'
     ext {
-        appName = 'au2019-softwaredesign-roguelike'
+        appName = 'my-gdx-game'
         gdxVersion = '1.6.1'
         roboVMVersion = '1.2.0'
         box2DLightsVersion = '1.3'
