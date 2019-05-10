@@ -1,26 +1,29 @@
 package com.roguelike.softwaredesign.au2019;
 
 
-import java.util.ArrayList;
-
+import com.roguelike.softwaredesign.au2019.Internal.GameMap;
 
 public class Grid {
-    static Boolean MOSK = true;
-    private static int nrow = 5;
-    private static int column = 5;
+    private int row;
+    private int col;
+    private char[][] data;
 
-    public ArrayList<ArrayList<Integer>> to2dArray() {
-        if (MOSK) {
-            ArrayList<ArrayList<Integer>> grid = new ArrayList<ArrayList<Integer>>();
-            for (int i = 0; i < nrow; i++) {
-                grid.add(new ArrayList<Integer>());
-                for (int j = 0; j < column; j++) {
-                    grid.get(grid.size() - 1).add(0);
-                }
-            }
-            return grid;
-        } else {
-            return null;
-        }
+    public Grid(int row, int col) {
+        this.row = row;
+        this.col = col;
+//        data = new GameMap().generateMap(row, col);
+        data = new GameMap().loadMap("./maps/29858");
+    }
+
+    public char[][] getData() {
+        return data;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getCol() {
+        return col;
     }
 }

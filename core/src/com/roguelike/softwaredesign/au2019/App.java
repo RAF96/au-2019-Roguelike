@@ -4,15 +4,29 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 
+import java.io.File;
+
+
 public class App extends ApplicationAdapter {
 	private Model model;
 	private View view;
+
+	public static class Settings {
+		static int COLELEM = 10;
+		static int ROWELEM = 12;
+
+		static int ROW= Gdx.graphics.getHeight() / ROWELEM + 1;
+		static int COL = Gdx.graphics.getWidth() / COLELEM;
+
+		public static String DIRNAME = "./maps";
+	}
+
 
 	@Override
 	public void create () {
 		model = new Model();
 		view = new View();
-		view.create();
+		new File(Settings.DIRNAME).mkdirs();
 	}
 
 	@Override
@@ -26,10 +40,5 @@ public class App extends ApplicationAdapter {
 		} else if(Gdx.input.isKeyJustPressed(Input.Keys.DOWN)){
 			view.render(model.move("DOWN"));
 		}
-		/*
-		batch.begin();
-		sprite.draw(batch);
-		batch.end();
-		 */
 	}
 }

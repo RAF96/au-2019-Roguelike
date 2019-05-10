@@ -7,42 +7,32 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class View {
     private SpriteBatch batch;
     private BitmapFont font;
-    static float w, h;
-    static float w_element, h_element;
 
-    {
-        w = Gdx.graphics.getWidth();
-        h = Gdx.graphics.getHeight();
-        w_element = 80;
-        h_element = 80;
-    }
-
-    public void create() {
+    public View() {
         batch = new SpriteBatch();
         font = new BitmapFont();
-        font.setColor(Color.WHITE);
+        font.setColor(Color.GREEN);
     }
 
     public void render(Grid grid) {
-        ArrayList<ArrayList<Integer>> arrays = grid.to2dArray();
-        _render(arrays);
-    }
-
-    private void _render(ArrayList<ArrayList<Integer>> grid) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        int row = grid.getRow();
+        int col = grid.getCol();
+        char[][] data = grid.getData();
+        int rowElement = App.Settings.ROWELEM;
+        int colElement = App.Settings.COLELEM;
+
         batch.begin();
-        for (int i = 0; i < grid.size(); i++) {
-            ArrayList<Integer> row = grid.get(i);
-            for (int j = 0; j < row.size(); j++) {
-                Integer element = row.get(j);
-                if (element == 0) {
-                    font.draw(batch, "#", i * h_element, j * w_element);
-                }
+        for (int j = 0; j < row; j++) {
+            for (int i = 0; i < col; i++) {
+                font.draw(batch, Character.toString(data[j][i]), i * colElement, j * rowElement);
             }
         }
         batch.end();

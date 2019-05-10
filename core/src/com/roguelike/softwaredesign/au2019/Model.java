@@ -1,12 +1,14 @@
 package com.roguelike.softwaredesign.au2019;
 
+
 public class Model {
-    private static Boolean MOSK = true;
+    private Grid grid = new Grid(App.Settings.ROW, App.Settings.COL);
+    private static Boolean MOCK = true;
 
     public Grid move(String direction) {
-        if (MOSK) {
+        if (MOCK) {
             System.out.println(direction);
-            return new Grid();
+            return grid;
         } else {
             return null;
         }
