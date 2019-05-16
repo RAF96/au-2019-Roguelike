@@ -8,6 +8,8 @@ import java.io.FileOutputStream;
 import java.util.Random;
 
 public class GameMap {
+    private boolean MOCK = true; // To do
+
     private class GenMap {
         private int row;
         private int col;
@@ -121,6 +123,9 @@ public class GameMap {
                 for (int i = 0; i < loadCol; i++) {
                     loadData[j][i] = (char)dataIn.read();
                 }
+            }
+            if (MOCK) {
+                loadData[20][20] = '@'; // It's hero
             }
             return loadData;
         } catch (Exception e) {

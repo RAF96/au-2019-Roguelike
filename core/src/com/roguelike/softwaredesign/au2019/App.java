@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 
 import java.io.File;
+import java.util.Set;
 
 
 public class App extends ApplicationAdapter {
@@ -27,18 +28,19 @@ public class App extends ApplicationAdapter {
 		model = new Model();
 		view = new View();
 		new File(Settings.DIRNAME).mkdirs();
+		view.render(model.getGrid());
 	}
 
 	@Override
 	public void render () {
 		if(Gdx.input.isKeyJustPressed(Input.Keys.LEFT)){
-		    view.render(model.move("LEFT"));
+		    view.render(model.moveHero("LEFT").getGrid());
 		} else if(Gdx.input.isKeyJustPressed(Input.Keys.UP)){
-			view.render(model.move("UP"));
+			view.render(model.moveHero("UP").getGrid());
 		} else if(Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)){
-			view.render(model.move("RIGHT"));
+			view.render(model.moveHero("RIGHT").getGrid());
 		} else if(Gdx.input.isKeyJustPressed(Input.Keys.DOWN)){
-			view.render(model.move("DOWN"));
+			view.render(model.moveHero("DOWN").getGrid());
 		}
 	}
 }
