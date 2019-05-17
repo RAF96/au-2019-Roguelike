@@ -1,5 +1,6 @@
-package com.roguelike.softwaredesign.au2019.GameObject;
+package com.roguelike.softwaredesign.au2019.Internal.GameObject;
 
+import com.roguelike.softwaredesign.au2019.Internal.ViewGameObject;
 import com.roguelike.softwaredesign.au2019.Towards;
 
 public abstract class GameObject {

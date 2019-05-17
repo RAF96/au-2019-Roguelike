@@ -5,7 +5,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 
 import java.io.File;
-import java.util.Set;
 
 
 public class App extends ApplicationAdapter {
@@ -13,13 +12,19 @@ public class App extends ApplicationAdapter {
 	private View view;
 
 	public static class Settings {
-		static int COLELEM = 10;
 		static int ROWELEM = 12;
+		static int COLELEM = 10;
 
-		static int ROW= Gdx.graphics.getHeight() / ROWELEM + 1;
+		static int ROW = Gdx.graphics.getHeight() / ROWELEM + 1;
 		static int COL = Gdx.graphics.getWidth() / COLELEM;
 
 		public static String DIRNAME = "./maps";
+
+		static char BORDER = '#';
+		static char SPACE = ' ';
+
+		static int HEROROW = 20;
+		static int HEROCOL = 20;
 	}
 
 

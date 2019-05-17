@@ -1,9 +1,8 @@
 package com.roguelike.softwaredesign.au2019;
 
 
-import com.roguelike.softwaredesign.au2019.GameObject.GameObject;
-import com.roguelike.softwaredesign.au2019.GameObject.Space;
-import com.roguelike.softwaredesign.au2019.GameObject.ViewGameObject;
+import com.roguelike.softwaredesign.au2019.Internal.GameObject.*;
+import com.roguelike.softwaredesign.au2019.Internal.ViewGameObject;
 import com.roguelike.softwaredesign.au2019.Internal.GameMap;
 
 public class Grid {
@@ -14,8 +13,9 @@ public class Grid {
     public Grid(int row, int col) {
         this.row = row;
         this.col = col;
-//        data = new GameMap().generateMap(row, col);
-        data = GridConverter.from2dArray(new GameMap().loadMap("./maps/29858"));
+//        data = new GameMap(App.Settings.BORDER, App.Settings.SPACE).generateMap(row, col);
+        data = GridConverter
+                .from2dArray(new GameMap(App.Settings.BORDER, App.Settings.SPACE).loadMap("./maps/29858"));
     }
 
     public ViewGameObject moveHero(int row, int column, String towards) {

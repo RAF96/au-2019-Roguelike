@@ -1,9 +1,11 @@
-package com.roguelike.softwaredesign.au2019.GameObject;
+package com.roguelike.softwaredesign.au2019.Internal.GameObject;
 
 public class Border extends GameObject {
+    private char symb;
 
-    public Border(Integer i, Integer j) {
+    public Border(char symb, Integer i, Integer j) {
         super(i, j);
+        this.symb = symb;
     }
 
     @Override
@@ -13,6 +15,6 @@ public class Border extends GameObject {
 
     @Override
     public char toChar() {
-        return '#';
+        return symb;
     }
 }

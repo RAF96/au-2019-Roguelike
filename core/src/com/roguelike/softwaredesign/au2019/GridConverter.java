@@ -1,7 +1,7 @@
 package com.roguelike.softwaredesign.au2019;
 
-import com.roguelike.softwaredesign.au2019.GameObject.GameObject;
-import com.roguelike.softwaredesign.au2019.GameObject.GameObjectConverter;
+import com.roguelike.softwaredesign.au2019.Internal.GameObject.GameObject;
+import com.roguelike.softwaredesign.au2019.Internal.GameObject.GameObjectConverter;
 
 public class GridConverter {
 

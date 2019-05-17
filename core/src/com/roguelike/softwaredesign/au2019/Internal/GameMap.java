@@ -8,7 +8,13 @@ import java.io.FileOutputStream;
 import java.util.Random;
 
 public class GameMap {
-    private boolean MOCK = true; // To do
+    private char border;
+    private char space;
+
+    public GameMap(char border, char space) {
+        this.border = border;
+        this.space = space;
+    }
 
     private class GenMap {
         private int row;
@@ -21,7 +27,7 @@ public class GameMap {
             data = new char[row][col];
             for (int j = 0; j < row; j++) {
                 for (int i = 0; i < col; i++) {
-                    data[j][i] = '#';
+                    data[j][i] = border;
                 }
             }
             frameGenerate(new Random(), 25);
@@ -30,12 +36,12 @@ public class GameMap {
         }
 
         private boolean isLocked(int x, int y) {
-            return x >= row || y >= col || x < 0 || y < 0 || data[x][y] != '#';
+            return x >= row || y >= col || x < 0 || y < 0 || data[x][y] != border;
         }
 
         private void randomGenerate(Random rand, int deep, int centralX, int centralY) {
             if (deep == 0) return;
-            data[centralX][centralY] = ' ';
+            data[centralX][centralY] = space;
             int x = centralX;
             int y = centralY;
             int num = rand.nextInt(4);
@@ -75,12 +81,12 @@ public class GameMap {
                 colSize = rand.nextInt(col - y) + y;
             } while (isLocked(rowSize, colSize));
             for (int i = x; i < rowSize; i++) {
-                data[i][y] = ' ';
-                data[i][colSize] = ' ';
+                data[i][y] = space;
+                data[i][colSize] = space;
             }
             for (int j = y; j < colSize + 1; j++) {
-                data[x][j] = ' ';
-                data[rowSize][j] = ' ';
+                data[x][j] = space;
+                data[rowSize][j] = space;
             }
             frameGenerate(rand, --deep);
         }
@@ -123,9 +129,6 @@ public class GameMap {
                 for (int i = 0; i < loadCol; i++) {
                     loadData[j][i] = (char)dataIn.read();
                 }
-            }
-            if (MOCK) {
-                loadData[20][20] = '@'; // It's hero
             }
             return loadData;
         } catch (Exception e) {

@@ -1,4 +1,4 @@
-package com.roguelike.softwaredesign.au2019.GameObject;
+package com.roguelike.softwaredesign.au2019.Internal.GameObject;
 
 public class Space extends GameObject {
     public Space(int row, int column) {

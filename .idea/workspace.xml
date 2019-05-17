@@ -3,14 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="489c34d2-4d04-431d-bc31-80ffc6ddc9f2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/core/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/App$Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/App$Settings.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/Grid.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/Internal/GameMap$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/Internal/GameMap$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/Internal/GameMap$GenMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/Internal/GameMap$GenMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/Internal/GameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/Internal/GameMap.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/Model.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/roguelike/softwaredesign/au2019/View.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GameObject/Border.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GameObject/GameObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GameObject/GameObjectConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GameObject/Hero.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GameObject/Space.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GameObject/ViewGameObject.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GridConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GridConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/View.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
@@ -35,40 +47,30 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="au-2019-Roguelike" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Grid.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/desktop/src/com/roguelike/softwaredesign/au2019/desktop/DesktopLauncher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+            <state relative-caret-position="289">
+              <caret line="17" column="107" lean-forward="true" selection-start-line="17" selection-start-column="107" selection-end-line="17" selection-end-column="107" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,35 +78,74 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/GameObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/GameObjectConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/Hero.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/Space.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/ViewGameObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GridConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
-              <caret line="110" selection-start-line="110" selection-end-line="110" />
+            <state relative-caret-position="204">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3282#3283#0" expanded="true" />
-                <element signature="e#3317#3318#0" expanded="true" />
-                <element signature="e#3166#3167#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-lwjgl/1.6.1/86cad6bee68d4ebfca20baf70b44583e959fc395/gdx-backend-lwjgl-1.6.1-sources.jar!/com/badlogic/gdx/backends/lwjgl/LwjglApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="124" selection-start-line="124" selection-end-line="124" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/View.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -112,8 +153,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            <state relative-caret-position="85">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/Border.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding>
+                <element signature="e#351#352#0" expanded="true" />
+                <element signature="e#378#379#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,6 +181,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>' '</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -135,14 +194,24 @@
       <list>
         <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GenMap.java" />
         <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/View.java" />
-        <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Model.java" />
+        <option value="$PROJECT_DIR$/core/build.gradle" />
+        <option value="$PROJECT_DIR$/desktop/build.gradle" />
+        <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/Space.java" />
+        <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/ViewGameObject.java" />
+        <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GridConverter.java" />
+        <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/Border.java" />
+        <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/GameObjectConverter.java" />
         <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/App.java" />
-        <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Grid.java" />
         <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameMap.java" />
+        <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/ViewGameObject.java" />
+        <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/GameObject.java" />
+        <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Model.java" />
+        <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/Hero.java" />
+        <option value="$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Grid.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="25" />
     <option name="width" value="927" />
@@ -196,6 +265,15 @@
             <path>
               <item name="au-2019-Roguelike" type="b2602c69:ProjectViewProjectNode" />
               <item name="au-2019-Roguelike" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="au2019" type="462c0819:PsiDirectoryNode" />
+              <item name="Internal" type="462c0819:PsiDirectoryNode" />
+              <item name="GameObject" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="au-2019-Roguelike" type="b2602c69:ProjectViewProjectNode" />
+              <item name="au-2019-Roguelike" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="desktop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
@@ -239,7 +317,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.DesktopLauncher (1)">
+    <configuration name="DesktopLauncher (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.roguelike.softwaredesign.au2019.desktop.DesktopLauncher" />
+      <module name="desktop_main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.roguelike.softwaredesign.au2019.desktop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DesktopLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -271,6 +362,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DesktopLauncher (1)" />
         <item itemvalue="Application.DesktopLauncher" />
         <item itemvalue="Application.DesktopLauncher" />
       </list>
@@ -293,7 +385,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14167129" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19977863" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -303,8 +395,8 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" visible="true" weight="0.18790497" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39956802" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" visible="true" weight="0.09827214" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.21058315" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -312,42 +404,39 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5002767" side_tool="true" weight="0.40928724" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3297414" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32937366" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.22462203" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24958494" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Gradle" order="5" />
+      <window_info anchor="right" id="Gradle" order="5" weight="0.2711677" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/desktop/src/com/mygdx/game/desktop/DesktopLauncher.java" />
     <entry file="file://$PROJECT_DIR$/core/assets/badlogic.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/desktop/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GenMap.java" />
-    <entry file="file://$PROJECT_DIR$/core/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/desktop/src/com/roguelike/softwaredesign/au2019/desktop/DesktopLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GameObject/GameObjectConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -358,6 +447,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GameObject/Border.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GameObject/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GameObject/Hero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GameObject/Space.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GameObject/ViewGameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -365,10 +503,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Towards.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+        <state relative-caret-position="461">
+          <caret line="31" column="27" lean-forward="true" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/ViewGameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/GameObjectConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/Border.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="e#351#352#0" expanded="true" />
+            <element signature="e#378#379#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/Hero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameObject/Space.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/ViewGameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/GridConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -377,27 +598,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Grid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/roguelike/softwaredesign/au2019/Internal/GameMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        <state relative-caret-position="289">
+          <caret line="17" column="107" lean-forward="true" selection-start-line="17" selection-start-column="107" selection-end-line="17" selection-end-column="107" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3282#3283#0" expanded="true" />
-            <element signature="e#3317#3318#0" expanded="true" />
-            <element signature="e#3166#3167#0" expanded="true" />
           </folding>
         </state>
       </provider>

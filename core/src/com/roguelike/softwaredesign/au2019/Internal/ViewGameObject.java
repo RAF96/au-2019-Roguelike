@@ -1,4 +1,4 @@
-package com.roguelike.softwaredesign.au2019.GameObject;
+package com.roguelike.softwaredesign.au2019.Internal;
 
 public class ViewGameObject {
     private Integer row;
