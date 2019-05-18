@@ -3,8 +3,8 @@ package com.roguelike.softwaredesign.au2019.Internal.GameObject;
 public class Border extends GameObject {
     private char symb;
 
-    public Border(char symb, Integer i, Integer j) {
-        super(i, j);
+    public Border(char symb, int row, int col) {
+        super(row, col);
         this.symb = symb;
     }
 

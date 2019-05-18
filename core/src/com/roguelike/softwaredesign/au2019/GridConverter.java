@@ -5,7 +5,7 @@ import com.roguelike.softwaredesign.au2019.Internal.GameObject.GameObjectConvert
 
 public class GridConverter {
 
-    static public GameObject[][] from2dArray(char [][] data) {
+    static public GameObject[][] from2dArray(char[][] data) {
         GameObject [][] result = new GameObject[data.length][data[0].length];
         for (int i = 0; i < data.length; i++) {
             char[] row = data[i];
@@ -16,7 +16,7 @@ public class GridConverter {
         return result;
     }
 
-    static public char [][] to2dArray(GameObject [][] data) {
+    static public char[][] to2dArray(GameObject[][] data) {
         char [][] result = new char[data.length][data[0].length];
         for (int i = 0; i < data.length; i++) {
             GameObject[] row = data[i];

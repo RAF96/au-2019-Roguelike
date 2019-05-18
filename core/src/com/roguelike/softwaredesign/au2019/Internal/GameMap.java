@@ -10,130 +10,137 @@ import java.util.Random;
 public class GameMap {
     private char border;
     private char space;
+    private int row;
+    private int col;
+    private char[][] data;
 
-    public GameMap(char border, char space) {
+
+    public GameMap(char border, char space, int row, int col) {
         this.border = border;
         this.space = space;
+        this.row = row;
+        this.col = col;
+
+        data = new char[row][col];
+        for (int j = 0; j < row; j++) {
+            for (int i = 0; i < col; i++) {
+                data[j][i] = border;
+            }
+        }
     }
 
-    private class GenMap {
-        private int row;
-        private int col;
-        private char[][] data;
+    private boolean isLocked(int x, int y) {
+        return x >= row || y >= col || x < 0 || y < 0 || data[x][y] != border;
+    }
 
-        private GenMap(int row, int col) {
-            this.row = row;
-            this.col = col;
-            data = new char[row][col];
+    private void randomGenerator(Random rand, int deep, int centralX, int centralY) {
+        if (deep == 0) return;
+        data[centralX][centralY] = space;
+        int x = centralX;
+        int y = centralY;
+        int num = rand.nextInt(4);
+        switch (num) {
+            case 0:
+                x -= 1;
+                break;
+            case 1:
+                x += 1;
+                break;
+            case 2:
+                y -= 1;
+                break;
+            case 3:
+                y += 1;
+                break;
+        }
+        while (isLocked(x, y)) {
+            x = rand.nextInt(row);
+            y = rand.nextInt(col);
+        }
+        randomGenerator(rand, --deep, x, y);
+    }
+
+    private void makeFrame(int x, int y, int rowSize, int colSize, char symb) {
+        for (int i = x; i < rowSize; i++) {
+            data[i][y] = symb;
+            data[i][colSize] = symb;
+        }
+        for (int j = y; j < colSize + 1; j++) {
+            data[x][j] = symb;
+            data[rowSize][j] = symb;
+        }
+    }
+
+    private void frameGenerator(Random rand, int deep) {
+        if (deep == 0) return;
+        int x;
+        int y;
+        do {
+            x = rand.nextInt(row);
+            y = rand.nextInt(col);
+        } while (isLocked(x, y));
+        int rowSize;
+        int colSize;
+        do {
+            rowSize = rand.nextInt(row - x) + x;
+            colSize = rand.nextInt(col - y) + y;
+        } while (isLocked(rowSize, colSize));
+        makeFrame(x, y, rowSize, colSize, space);
+        frameGenerator(rand, --deep);
+    }
+
+    private void saveMap() {
+        String fileName = App.Settings.DIRNAME + "/" + (new Random().nextInt(99999) + 10000);
+        File file = new File(fileName);
+        try {
+            file.createNewFile();
+            FileOutputStream dataOut = new FileOutputStream(file);
+            dataOut.write(row);
+            dataOut.write(col);
             for (int j = 0; j < row; j++) {
                 for (int i = 0; i < col; i++) {
-                    data[j][i] = border;
+                    dataOut.write(data[j][i]);
                 }
             }
-            frameGenerate(new Random(), 25);
-            randomGenerate(new Random(), 500, row / 2, col / 2);
-            saveMap();
-        }
-
-        private boolean isLocked(int x, int y) {
-            return x >= row || y >= col || x < 0 || y < 0 || data[x][y] != border;
-        }
-
-        private void randomGenerate(Random rand, int deep, int centralX, int centralY) {
-            if (deep == 0) return;
-            data[centralX][centralY] = space;
-            int x = centralX;
-            int y = centralY;
-            int num = rand.nextInt(4);
-            switch (num) {
-                case 0:
-                    x -= 1;
-                    break;
-                case 1:
-                    x += 1;
-                    break;
-                case 2:
-                    y -= 1;
-                    break;
-                case 3:
-                    y += 1;
-                    break;
-            }
-            while (isLocked(x, y)) {
-                x = rand.nextInt(row);
-                y = rand.nextInt(col);
-            }
-            randomGenerate(rand, --deep, x, y);
-        }
-
-        private void frameGenerate(Random rand, int deep) {
-            if (deep == 0) return;
-            int x;
-            int y;
-            do {
-                x = rand.nextInt(row);
-                y = rand.nextInt(col);
-            } while (isLocked(x, y));
-            int rowSize;
-            int colSize;
-            do {
-                rowSize = rand.nextInt(row - x) + x;
-                colSize = rand.nextInt(col - y) + y;
-            } while (isLocked(rowSize, colSize));
-            for (int i = x; i < rowSize; i++) {
-                data[i][y] = space;
-                data[i][colSize] = space;
-            }
-            for (int j = y; j < colSize + 1; j++) {
-                data[x][j] = space;
-                data[rowSize][j] = space;
-            }
-            frameGenerate(rand, --deep);
-        }
-
-        private void saveMap() {
-            String fileName = App.Settings.DIRNAME + "/" + (new Random().nextInt(99999) + 10000);
-            File file = new File(fileName);
-            try {
-                file.createNewFile();
-                FileOutputStream dataOut = new FileOutputStream(file);
-                dataOut.write(row);
-                dataOut.write(col);
-                for (int j = 0; j < row; j++) {
-                    for (int i = 0; i < col; i++) {
-                        dataOut.write(data[j][i]);
-                    }
-                }
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        }
-
-        private char[][] getData() {
-            return data;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
-    public char[][] generateMap(int row, int col) {
-        return new GenMap(row, col).getData();
+    public GameMap generateMap() {
+        frameGenerator(new Random(), 20);
+        randomGenerator(new Random(), 300, row / 2, col / 2);
+        makeFrame(1, 0, row - 1, col - 1, border);
+        saveMap();
+        return this;
     }
 
-    public char[][] loadMap(String fileName) {
+    public GameMap loadMap(String fileName) {
         File file = new File(fileName);
         try {
             FileInputStream dataIn = new FileInputStream(file);
             int loadRow = dataIn.read();
             int loadCol = dataIn.read();
-            char[][] loadData = new char[loadRow][loadCol];
             for (int j = 0; j < loadRow; j++) {
+                if (j >= row) continue;
                 for (int i = 0; i < loadCol; i++) {
-                    loadData[j][i] = (char)dataIn.read();
+                    if (i >= col) continue;
+                    data[j][i] = (char)dataIn.read();
                 }
             }
-            return loadData;
+            return this;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
         }
+    }
+
+    public GameMap setHero(char hero, int row, int col) {
+        data[row][col] = hero;
+        return this;
+    }
+
+    public char[][] getMap() {
+        return data;
     }
 }

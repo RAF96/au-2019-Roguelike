@@ -13,9 +13,13 @@ public class Grid {
     public Grid(int row, int col) {
         this.row = row;
         this.col = col;
-//        data = new GameMap(App.Settings.BORDER, App.Settings.SPACE).generateMap(row, col);
+
+        GameMap gm = new GameMap(App.Settings.BORDER, App.Settings.SPACE, row, col)
+//                .generateMap()
+                .loadMap("./maps/72484")
+                .setHero(App.Settings.HERO, App.Settings.HEROROW, App.Settings.HEROCOL);
         data = GridConverter
-                .from2dArray(new GameMap(App.Settings.BORDER, App.Settings.SPACE).loadMap("./maps/29858"));
+                .from2dArray(gm.getMap());
     }
 
     public ViewGameObject moveHero(int row, int column, String towards) {

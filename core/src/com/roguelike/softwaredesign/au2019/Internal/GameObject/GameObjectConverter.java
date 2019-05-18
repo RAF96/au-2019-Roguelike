@@ -10,7 +10,7 @@ public class GameObjectConverter {
     private static HashMap<Character, BiFunction<Integer, Integer, GameObject>> factoryGameObject =
         new HashMap<Character, BiFunction<Integer, Integer, GameObject>>(){{
             put(' ', Space::new);
-            put('#', (i, j) -> new Border('#', i, j));
+            put('w', (i, j) -> new Border('w', i, j));
             put('@', Hero::new);
     }};
 

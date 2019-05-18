@@ -12,16 +12,17 @@ public class App extends ApplicationAdapter {
 	private View view;
 
 	public static class Settings {
-		static int ROWELEM = 12;
-		static int COLELEM = 10;
+		static int ROWELEM = 15;
+		static int COLELEM = 15;
 
 		static int ROW = Gdx.graphics.getHeight() / ROWELEM + 1;
-		static int COL = Gdx.graphics.getWidth() / COLELEM;
+		static int COL = Gdx.graphics.getWidth() / COLELEM + 1;
 
 		public static String DIRNAME = "./maps";
 
-		static char BORDER = '#';
+		static char BORDER = 'w';
 		static char SPACE = ' ';
+		static char HERO = '@';
 
 		static int HEROROW = 20;
 		static int HEROCOL = 20;
