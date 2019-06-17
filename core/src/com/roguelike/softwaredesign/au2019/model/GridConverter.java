@@ -6,7 +6,7 @@ import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.GameObjectC
 public class GridConverter {
 
     static public GameObject[][] from2dArray(char[][] data) {
-        GameObject [][] result = new GameObject[data.length][data[0].length];
+        GameObject[][] result = new GameObject[data.length][data[0].length];
         for (int i = 0; i < data.length; i++) {
             char[] row = data[i];
             for (int j = 0; j < row.length; ++j) {
@@ -17,7 +17,7 @@ public class GridConverter {
     }
 
     static public char[][] to2dArray(GameObject[][] data) {
-        char [][] result = new char[data.length][data[0].length];
+        char[][] result = new char[data.length][data[0].length];
         for (int i = 0; i < data.length; i++) {
             GameObject[] row = data[i];
             for (int j = 0; j < row.length; ++j) {

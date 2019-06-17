@@ -13,12 +13,16 @@ public abstract class GameObject {
     }
 
     public Boolean isHero() {
-       return false;
+        return false;
     }
+
     public Boolean isSpace() {
         return false;
     }
-    public Boolean isBorder() { return false; }
+
+    public Boolean isBorder() {
+        return false;
+    }
 
     abstract public char toChar();
 

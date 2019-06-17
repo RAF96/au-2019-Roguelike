@@ -1,28 +1,24 @@
 package com.roguelike.softwaredesign.au2019.view;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.scenes.scene2d.*;
+import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import com.roguelike.softwaredesign.au2019.controller.CommonController;
-
-import java.util.*;
 
 
 public class Entry extends Group {
     private final CommonController controller;
+    TextField textField;
     private TextButton.TextButtonStyle style = new TextButton.TextButtonStyle();
     private Button generate;
     private Button download;
-    TextField textField;
 
     public Entry(CommonController controller) {
         super();

@@ -125,7 +125,7 @@ public class GameMap {
                 if (j >= row) continue;
                 for (int i = 0; i < loadCol; i++) {
                     if (i >= col) continue;
-                    data[j][i] = (char)dataIn.read();
+                    data[j][i] = (char) dataIn.read();
                 }
             }
             return this;

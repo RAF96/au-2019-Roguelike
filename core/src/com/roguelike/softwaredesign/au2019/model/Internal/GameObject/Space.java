@@ -6,7 +6,7 @@ public class Space extends GameObject {
     }
 
     @Override
-    public Boolean isSpace(){
+    public Boolean isSpace() {
         return true;
     }
 
