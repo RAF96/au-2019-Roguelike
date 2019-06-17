@@ -1,6 +1,6 @@
-package com.roguelike.softwaredesign.au2019.Internal;
+package com.roguelike.softwaredesign.au2019.model.Internal;
 
-import com.roguelike.softwaredesign.au2019.App;
+import com.roguelike.softwaredesign.au2019.controller.CommonController;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -90,7 +90,7 @@ public class GameMap {
     }
 
     private void saveMap() {
-        String fileName = App.Settings.DIRNAME + "/" + (new Random().nextInt(99999) + 10000);
+        String fileName = CommonController.Settings.DIRNAME + "/" + (new Random().nextInt(99999) + 10000);
         File file = new File(fileName);
         try {
             file.createNewFile();

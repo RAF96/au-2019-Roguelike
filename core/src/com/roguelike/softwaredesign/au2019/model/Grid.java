@@ -1,9 +1,10 @@
-package com.roguelike.softwaredesign.au2019;
+package com.roguelike.softwaredesign.au2019.model;
 
 
-import com.roguelike.softwaredesign.au2019.Internal.GameObject.*;
-import com.roguelike.softwaredesign.au2019.Internal.ViewGameObject;
-import com.roguelike.softwaredesign.au2019.Internal.GameMap;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.*;
+import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameMap;
+import com.roguelike.softwaredesign.au2019.controller.CommonController;
 
 public class Grid {
     private int row;
@@ -14,10 +15,10 @@ public class Grid {
         this.row = row;
         this.col = col;
 
-        GameMap gm = new GameMap(App.Settings.BORDER, App.Settings.SPACE, row, col)
+        GameMap gm = new GameMap(CommonController.Settings.BORDER, CommonController.Settings.SPACE, row, col)
 //                .generateMap()
                 .loadMap("./maps/72484")
-                .setHero(App.Settings.HERO, App.Settings.HEROROW, App.Settings.HEROCOL);
+                .setHero(CommonController.Settings.HERO, CommonController.Settings.HEROROW, CommonController.Settings.HEROCOL);
         data = GridConverter
                 .from2dArray(gm.getMap());
     }

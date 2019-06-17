@@ -1,7 +1,7 @@
-package com.roguelike.softwaredesign.au2019.Internal.GameObject;
+package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
-import com.roguelike.softwaredesign.au2019.Internal.ViewGameObject;
-import com.roguelike.softwaredesign.au2019.Towards;
+import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
+import com.roguelike.softwaredesign.au2019.model.Towards;
 
 public abstract class GameObject {
     private Integer row;

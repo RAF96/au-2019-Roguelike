@@ -1,9 +1,7 @@
-package com.roguelike.softwaredesign.au2019.Internal.GameObject;
+package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.function.BiFunction;
-import java.util.function.ObjIntConsumer;
 
 
 public class GameObjectConverter {

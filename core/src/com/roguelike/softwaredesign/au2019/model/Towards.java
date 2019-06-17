@@ -1,4 +1,4 @@
-package com.roguelike.softwaredesign.au2019;
+package com.roguelike.softwaredesign.au2019.model;
 import java.util.HashMap;
 import java.util.Map;
 
