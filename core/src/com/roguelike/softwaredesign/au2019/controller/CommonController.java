@@ -16,6 +16,7 @@ public class CommonController extends ApplicationAdapter {
 	private Model model;
 	private CommonView view;
 	private Stage stage;
+	private static final boolean MOCK = true;
 
 	public static class Settings {
 		public static int ROWELEM = 15;
@@ -61,6 +62,15 @@ public class CommonController extends ApplicationAdapter {
 	}
 
 	public void generateMap() {
-		view.setGrid(model.getGrid());
+		if (MOCK) {
+			view.setGrid(model.getGrid());
+		}
 	}
+
+	public void loadMapFromPath(String path) {
+		System.out.println(path);
+		if (MOCK) {
+			view.setGrid(model.getGrid());
+		}
+    }
 }
