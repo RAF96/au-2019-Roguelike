@@ -28,10 +28,10 @@ public class Entry extends Group {
         super();
         this.controller = controller;
         style.font = new BitmapFont();
-        style.fontColor = new Color(1, 1, 0, 1);
-        style.checkedFontColor = new Color(1, 1, 0, 1);
-        style.checkedOverFontColor = new Color(1, 1, 0, 1);
-        style.downFontColor = new Color(1, 1, 0, 1);
+        style.fontColor = new Color(1, 1, 1, 1);
+        style.checkedFontColor = new Color(1, 1, 1, 1);
+        style.checkedOverFontColor = new Color(1, 1, 1, 1);
+        style.downFontColor = new Color(1, 1, 1, 1);
         generate = new TextButton("Generate map", style);
         generate.setPosition(200, 220);
         generate.addListener(new ClickListener() {
@@ -48,12 +48,12 @@ public class Entry extends Group {
         textFieldStyle.font = style.font;
         textFieldStyle.fontColor = new Color(1, 1, 0, 1);
 
-        textField = new TextField("Write path here", textFieldStyle);
-        textField.setPosition(200, 180);
+        textField = new TextField("/Write/path/here", textFieldStyle);
+        textField.setPosition(200, 160);
         addActor(textField);
 
         download = new TextButton("Download map", style);
-        download.setPosition(200, 200);
+        download.setPosition(200, 180);
         download.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
