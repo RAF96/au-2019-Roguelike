@@ -90,7 +90,7 @@ public class GameMap {
     }
 
     private void saveMap() {
-        String fileName = CommonController.Settings.DIRNAME + "/" + (new Random().nextInt(99999) + 10000);
+        String fileName = CommonController.Settings.MAPSDIR + "/" + (new Random().nextInt(99999) + 10000);
         File file = new File(fileName);
         try {
             file.createNewFile();
@@ -108,8 +108,9 @@ public class GameMap {
     }
 
     public GameMap generateMap() {
-        frameGenerator(new Random(), 20);
-        randomGenerator(new Random(), 300, row / 2, col / 2);
+        Random random = new Random();
+        frameGenerator(random, 20);
+        randomGenerator(random, 300, row / 2, col / 2);
         makeFrame(1, 0, row - 1, col - 1, border);
         saveMap();
         return this;

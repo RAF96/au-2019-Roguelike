@@ -12,17 +12,15 @@ import java.io.File;
 
 
 public class CommonController extends ApplicationAdapter {
-    private static final boolean MOCK = true;
     private Model model;
     private CommonView view;
     private Stage stage;
 
     @Override
     public void create() {
-        model = new Model();
         view = new CommonView(this);
         stage = new Stage();
-        new File(Settings.DIRNAME).mkdirs();
+        new File(Settings.MAPSDIR).mkdirs();
         stage.addActor(view);
         Gdx.input.setInputProcessor(stage);
     }
@@ -43,15 +41,13 @@ public class CommonController extends ApplicationAdapter {
     }
 
     public void generateMap() {
-        if (MOCK) {
-            view.setGrid(model.getGrid());
-        }
+        model = new Model();
+        view.setGrid(model.getGrid());
     }
 
     public void loadMapFromPath(String path) {
-        if (MOCK) {
-            view.setGrid(model.getGrid());
-        }
+        model = new Model(path);
+        view.setGrid(model.getGrid());
     }
 
     public static class Settings {
@@ -61,7 +57,7 @@ public class CommonController extends ApplicationAdapter {
         public static int ROW = Gdx.graphics.getHeight() / ROWELEM + 1;
         public static int COL = Gdx.graphics.getWidth() / COLELEM + 1;
 
-        public static String DIRNAME = "./maps";
+        public static String MAPSDIR = "./maps";
 
         public static char BORDER = 'w';
         public static char SPACE = ' ';

@@ -17,8 +17,18 @@ public class Grid {
         this.col = col;
 
         GameMap gm = new GameMap(CommonController.Settings.BORDER, CommonController.Settings.SPACE, row, col)
-//                .generateMap()
-                .loadMap("./maps/72484")
+                .generateMap()
+                .setHero(CommonController.Settings.HERO, CommonController.Settings.HEROROW, CommonController.Settings.HEROCOL);
+        data = GridConverter
+                .from2dArray(gm.getMap());
+    }
+
+    public Grid(String path, int row, int col) {
+        this.row = row;
+        this.col = col;
+
+        GameMap gm = new GameMap(CommonController.Settings.BORDER, CommonController.Settings.SPACE, row, col)
+                .loadMap(path)
                 .setHero(CommonController.Settings.HERO, CommonController.Settings.HEROROW, CommonController.Settings.HEROCOL);
         data = GridConverter
                 .from2dArray(gm.getMap());
