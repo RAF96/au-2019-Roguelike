@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Random;
 
+
 // карта игры
 public class GameMap {
     private char border;

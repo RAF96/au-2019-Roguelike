@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.roguelike.softwaredesign.au2019.controller.CommonController;
 
 
+// отображает входное окно (меню)
 public class Entry extends Group {
     TextField textField;
     private TextButton.TextButtonStyle style = new TextButton.TextButtonStyle();
@@ -59,6 +60,7 @@ public class Entry extends Group {
         addActor(load);
     }
 
+    // отрисовка
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);

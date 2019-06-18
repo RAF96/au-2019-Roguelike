@@ -10,6 +10,8 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.roguelike.softwaredesign.au2019.controller.CommonController;
 import com.roguelike.softwaredesign.au2019.model.Grid;
 
+
+// отображает карту игры
 public class Map extends Group {
 
     private Grid grid;
@@ -18,6 +20,7 @@ public class Map extends Group {
         super();
     }
 
+    // отрисовка
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);
@@ -35,7 +38,7 @@ public class Map extends Group {
         char[][] data = grid.getData();
         int rowElement = CommonController.Settings.ROWELEM;
         int colElement = CommonController.Settings.COLELEM;
-
+        
         BitmapFont font = new BitmapFont();
         font.setColor(Color.GREEN);
 
@@ -46,6 +49,7 @@ public class Map extends Group {
         }
     }
 
+    // установка карты
     public void setGrid(Grid grid) {
         this.grid = grid;
     }
