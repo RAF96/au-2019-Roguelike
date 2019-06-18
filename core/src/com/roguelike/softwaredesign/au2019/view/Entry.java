@@ -13,16 +13,15 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.roguelike.softwaredesign.au2019.controller.CommonController;
 
 
+// отображает входное окно (меню)
 public class Entry extends Group {
-    private final CommonController controller;
     TextField textField;
     private TextButton.TextButtonStyle style = new TextButton.TextButtonStyle();
     private Button generate;
-    private Button download;
+    private Button load;
 
-    public Entry(CommonController controller) {
+    public Entry(CommonController commonController) {
         super();
-        this.controller = controller;
         style.font = new BitmapFont();
         style.fontColor = new Color(1, 1, 1, 1);
         style.checkedFontColor = new Color(1, 1, 1, 1);
@@ -33,7 +32,7 @@ public class Entry extends Group {
         generate.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                controller.generateMap();
+                commonController.generateMap();
                 Entry.this.addAction(Actions.removeActor(Entry.this));
                 super.clicked(event, x, y);
             }
@@ -48,19 +47,20 @@ public class Entry extends Group {
         textField.setPosition(200, 160);
         addActor(textField);
 
-        download = new TextButton("Download map", style);
-        download.setPosition(200, 180);
-        download.addListener(new ClickListener() {
+        load = new TextButton("Load map", style);
+        load.setPosition(200, 180);
+        load.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                controller.loadMapFromPath(textField.getText());
+                commonController.loadMapFromPath(textField.getText());
                 Entry.this.addAction(Actions.removeActor(Entry.this));
                 super.clicked(event, x, y);
             }
         });
-        addActor(download);
+        addActor(load);
     }
 
+    // отрисовка
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);

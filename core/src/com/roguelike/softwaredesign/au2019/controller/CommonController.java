@@ -11,22 +11,23 @@ import com.roguelike.softwaredesign.au2019.view.CommonView;
 import java.io.File;
 
 
+// класс инициализации и отрисовки игры
 public class CommonController extends ApplicationAdapter {
-    private static final boolean MOCK = true;
     private Model model;
     private CommonView view;
     private Stage stage;
 
+    // инициализация
     @Override
     public void create() {
-        model = new Model();
         view = new CommonView(this);
         stage = new Stage();
-        new File(Settings.DIRNAME).mkdirs();
+        new File(Settings.MAPSDIR).mkdirs();
         stage.addActor(view);
         Gdx.input.setInputProcessor(stage);
     }
 
+    // отрисовка сцены
     @Override
     public void render() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -42,18 +43,19 @@ public class CommonController extends ApplicationAdapter {
         }
     }
 
+    // генерация карты при нажати на кнопку Generate Map
     public void generateMap() {
-        if (MOCK) {
-            view.setGrid(model.getGrid());
-        }
+        model = new Model();
+        view.setGrid(model.getGrid());
     }
 
+    // загрузка карты при нажати на кнопку Load Map
     public void loadMapFromPath(String path) {
-        if (MOCK) {
-            view.setGrid(model.getGrid());
-        }
+        model = new Model(path);
+        view.setGrid(model.getGrid());
     }
 
+    // константы игры
     public static class Settings {
         public static int ROWELEM = 15;
         public static int COLELEM = 15;
@@ -61,7 +63,7 @@ public class CommonController extends ApplicationAdapter {
         public static int ROW = Gdx.graphics.getHeight() / ROWELEM + 1;
         public static int COL = Gdx.graphics.getWidth() / COLELEM + 1;
 
-        public static String DIRNAME = "./maps";
+        public static String MAPSDIR = "./maps";
 
         public static char BORDER = 'w';
         public static char SPACE = ' ';
