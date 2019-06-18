@@ -11,11 +11,13 @@ import com.roguelike.softwaredesign.au2019.view.CommonView;
 import java.io.File;
 
 
+// класс инициализации и отрисовки игры
 public class CommonController extends ApplicationAdapter {
     private Model model;
     private CommonView view;
     private Stage stage;
 
+    // инициализация
     @Override
     public void create() {
         view = new CommonView(this);
@@ -25,6 +27,7 @@ public class CommonController extends ApplicationAdapter {
         Gdx.input.setInputProcessor(stage);
     }
 
+    // отрисовка сцены
     @Override
     public void render() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -40,16 +43,19 @@ public class CommonController extends ApplicationAdapter {
         }
     }
 
+    // генерация карты при нажати на кнопку Generate Map
     public void generateMap() {
         model = new Model();
         view.setGrid(model.getGrid());
     }
 
+    // загрузка карты при нажати на кнопку Load Map
     public void loadMapFromPath(String path) {
         model = new Model(path);
         view.setGrid(model.getGrid());
     }
 
+    // константы игры
     public static class Settings {
         public static int ROWELEM = 15;
         public static int COLELEM = 15;

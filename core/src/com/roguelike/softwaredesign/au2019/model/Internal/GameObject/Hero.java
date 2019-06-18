@@ -1,5 +1,7 @@
 package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
+
+// объект "герой"
 public class Hero extends GameObject {
 
     public Hero(int row, int column) {
