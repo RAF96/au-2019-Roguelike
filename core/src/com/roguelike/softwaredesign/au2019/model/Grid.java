@@ -16,22 +16,18 @@ public class Grid {
         this.row = row;
         this.col = col;
 
-        GameMap gm = new GameMap(CommonController.Settings.BORDER, CommonController.Settings.SPACE, row, col)
-                .generateMap()
-                .setHero(CommonController.Settings.HERO, CommonController.Settings.HEROROW, CommonController.Settings.HEROCOL);
-        data = GridConverter
-                .from2dArray(gm.getMap());
+        char[][] gameMap = new GameMap(CommonController.Settings.BORDER, CommonController.Settings.SPACE, row, col).getMap();
+        gameMap[CommonController.Settings.HEROROW][CommonController.Settings.HEROCOL] = CommonController.Settings.HERO;
+        data = GridConverter.from2dArray(gameMap);
     }
 
     public Grid(String path, int row, int col) {
         this.row = row;
         this.col = col;
 
-        GameMap gm = new GameMap(CommonController.Settings.BORDER, CommonController.Settings.SPACE, row, col)
-                .loadMap(path)
-                .setHero(CommonController.Settings.HERO, CommonController.Settings.HEROROW, CommonController.Settings.HEROCOL);
-        data = GridConverter
-                .from2dArray(gm.getMap());
+        char[][] gameMap = new GameMap(path, CommonController.Settings.BORDER, CommonController.Settings.SPACE, row, col).getMap();
+        gameMap[CommonController.Settings.HEROROW][CommonController.Settings.HEROCOL] = CommonController.Settings.HERO;
+        data = GridConverter.from2dArray(gameMap);
     }
 
     public ViewGameObject moveHero(int row, int column, String towards) {

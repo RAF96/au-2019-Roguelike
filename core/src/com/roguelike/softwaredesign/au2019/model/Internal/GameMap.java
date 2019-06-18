@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Random;
 
+// карта игры
 public class GameMap {
     private char border;
     private char space;
@@ -14,7 +15,8 @@ public class GameMap {
     private int col;
     private char[][] data;
 
-
+    // генерирует карту заданного размера
+    // из указанных символов для пустого пространства и границ
     public GameMap(char border, char space, int row, int col) {
         this.border = border;
         this.space = space;
@@ -27,6 +29,18 @@ public class GameMap {
                 data[j][i] = border;
             }
         }
+        generateMap();
+    }
+
+    // загружает карту с учётом заданных размеров
+    public GameMap(String fileName, char border, char space, int row, int col) {
+        this.border = border;
+        this.space = space;
+        this.row = row;
+        this.col = col;
+
+        data = new char[row][col];
+        loadMap(fileName);
     }
 
     private boolean isLocked(int x, int y) {
@@ -107,16 +121,15 @@ public class GameMap {
         }
     }
 
-    public GameMap generateMap() {
+    private void generateMap() {
         Random random = new Random();
         frameGenerator(random, 20);
         randomGenerator(random, 300, row / 2, col / 2);
         makeFrame(1, 0, row - 1, col - 1, border);
         saveMap();
-        return this;
     }
 
-    public GameMap loadMap(String fileName) {
+    private void loadMap(String fileName) {
         File file = new File(fileName);
         try {
             FileInputStream dataIn = new FileInputStream(file);
@@ -129,18 +142,12 @@ public class GameMap {
                     data[j][i] = (char) dataIn.read();
                 }
             }
-            return this;
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return null;
         }
     }
 
-    public GameMap setHero(char hero, int row, int col) {
-        data[row][col] = hero;
-        return this;
-    }
-
+    // возвращает созданную карту
     public char[][] getMap() {
         return data;
     }
