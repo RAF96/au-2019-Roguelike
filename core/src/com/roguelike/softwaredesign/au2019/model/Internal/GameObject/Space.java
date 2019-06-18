@@ -1,4 +1,4 @@
-package com.roguelike.softwaredesign.au2019.Internal.GameObject;
+package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
 public class Space extends GameObject {
     public Space(int row, int column) {
@@ -6,7 +6,7 @@ public class Space extends GameObject {
     }
 
     @Override
-    public Boolean isSpace(){
+    public Boolean isSpace() {
         return true;
     }
 

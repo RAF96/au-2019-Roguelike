@@ -1,9 +1,11 @@
-package com.roguelike.softwaredesign.au2019;
+package com.roguelike.softwaredesign.au2019.model;
 
 
-import com.roguelike.softwaredesign.au2019.Internal.GameObject.*;
-import com.roguelike.softwaredesign.au2019.Internal.ViewGameObject;
-import com.roguelike.softwaredesign.au2019.Internal.GameMap;
+import com.roguelike.softwaredesign.au2019.controller.CommonController;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameMap;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.GameObject;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Space;
+import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
 
 public class Grid {
     private int row;
@@ -14,10 +16,10 @@ public class Grid {
         this.row = row;
         this.col = col;
 
-        GameMap gm = new GameMap(App.Settings.BORDER, App.Settings.SPACE, row, col)
+        GameMap gm = new GameMap(CommonController.Settings.BORDER, CommonController.Settings.SPACE, row, col)
 //                .generateMap()
                 .loadMap("./maps/72484")
-                .setHero(App.Settings.HERO, App.Settings.HEROROW, App.Settings.HEROCOL);
+                .setHero(CommonController.Settings.HERO, CommonController.Settings.HEROROW, CommonController.Settings.HEROCOL);
         data = GridConverter
                 .from2dArray(gm.getMap());
     }
@@ -31,12 +33,12 @@ public class Grid {
     }
 
     public ViewGameObject moveCell(int row, int column, String towards) {
-        int new_row = row + Towards.getDeltaRow(towards);
-        int new_column = column + Towards.getDeltaColumn(towards);
-        if (data[new_row][new_column].isSpace()) {
+        int newRow = row + Towards.getDeltaRow(towards);
+        int newColumn = column + Towards.getDeltaColumn(towards);
+        if (data[newRow][newColumn].isSpace()) {
             GameObject new_obj = data[row][column].move(towards);
             data[row][column] = new Space(row, column);
-            data[new_row][new_column] = new_obj;
+            data[newRow][newColumn] = new_obj;
             return new_obj.getView();
         }
         return data[row][column].getView();
