@@ -42,6 +42,11 @@ public class Grid {
             gameMap[rand.nextInt(numRow - 1) + 1][rand.nextInt(numCol - 1) + 1]  = CommonController.Settings.MOB;
         }
 
+
+        for (int i = 0; i < CommonController.Settings.ARTEFACTSNUM; i++) {
+            gameMap[rand.nextInt(numRow - 1) + 1][rand.nextInt(numCol - 1) + 1] = CommonController.Settings.ARTEFACT;
+        }
+
         data = GridConverter.from2dArray(gameMap);
         for (int i = 0; i < numRow; i++) {
             for (int j = 0; j < numCol; j++) {
