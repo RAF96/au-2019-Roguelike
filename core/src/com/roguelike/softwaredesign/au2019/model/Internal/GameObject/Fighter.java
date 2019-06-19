@@ -1,7 +1,5 @@
 package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
-import com.roguelike.softwaredesign.au2019.model.Towards;
-
 // класс всех персонажей
 public abstract class Fighter extends GameObject {
     protected int health;
@@ -43,6 +41,6 @@ public abstract class Fighter extends GameObject {
         attack += delta;
     }
 
-    public void takeArtefact(Artefact artefact) {
+    public void takeArtifact(Artifact artifact) {
     }
 }

@@ -1,9 +1,6 @@
 package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
 
-import com.roguelike.softwaredesign.au2019.model.Towards;
-import com.sun.org.glassfish.gmbal.ManagedObject;
-
 // объект "герой"
 public class Hero extends Fighter {
     private BonusPower bonus = new BonusPower(0,0);
@@ -22,18 +19,18 @@ public class Hero extends Fighter {
         return '@';
     }
 
-    public void dropArtefact() {
+    public void dropArtifact() {
         bonus = new BonusPower(0, 0);
     }
 
     @Override
-    public void takeArtefact(Artefact artefact) {
-       bonus = artefact.getBonusPower();
+    public void takeArtifact(Artifact artifact) {
+        bonus = artifact.getBonusPower();
     }
 
     @Override
     public int getHealth() {
-        return bonus.getHealh() + this.health;
+        return bonus.getHealth() + this.health;
     }
 
     @Override
@@ -43,5 +40,9 @@ public class Hero extends Fighter {
 
     public boolean isAlife() {
         return getHealth() > 0;
+    }
+
+    public BonusPower getBonusPower() {
+        return bonus;
     }
 }

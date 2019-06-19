@@ -76,9 +76,9 @@ public class Grid {
         if (data[newRow][newCol].isSpace()) {
             return true;
         }
-        if (data[newRow][newCol].isArtefact()) {
+        if (data[newRow][newCol].isArtifact()) {
             Fighter fighter = (Fighter) data[row][col];
-            fighter.takeArtefact((Artefact) data[newRow][newCol]);
+            fighter.takeArtifact((Artifact) data[newRow][newCol]);
             return true;
         }
         if (data[newRow][newCol].isMob() || data[newRow][newCol].isHero()) {

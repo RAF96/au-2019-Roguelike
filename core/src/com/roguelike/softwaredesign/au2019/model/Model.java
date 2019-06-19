@@ -31,7 +31,11 @@ public class Model {
     public void saveLastState() { // MOCK for plurial
     }
 
-    public void heroDropArtefact() {
-        hero.dropArtefact();
+    public void heroDropArtifact() {
+        hero.dropArtifact();
+    }
+
+    public ViewHero getHero() {
+        return hero;
     }
 }

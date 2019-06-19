@@ -27,7 +27,7 @@ public abstract class GameObject {
         return false;
     }
 
-    public Boolean isArtefact() {
+    public Boolean isArtifact() {
         return false;
     }
 

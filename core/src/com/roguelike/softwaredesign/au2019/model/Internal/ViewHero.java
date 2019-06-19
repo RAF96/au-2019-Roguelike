@@ -1,5 +1,6 @@
 package com.roguelike.softwaredesign.au2019.model.Internal;
 
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.BonusPower;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Hero;
 
 public class ViewHero {
@@ -20,11 +21,23 @@ public class ViewHero {
         return hero.getColumn();
     }
 
-    public void dropArtefact() {
-        hero.dropArtefact();
+    public void dropArtifact() {
+        hero.dropArtifact();
     }
 
     public boolean isAlife() {
         return hero.isAlife();
+    }
+
+    public int getHealth() {
+        return hero.getHealth();
+    }
+
+    public int getAttack() {
+        return hero.getAttack();
+    }
+
+    public BonusPower getBonusPower() {
+        return hero.getBonusPower();
     }
 }

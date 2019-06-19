@@ -3,10 +3,10 @@ package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 import javax.swing.*;
 import java.util.Random;
 
-public class Artefact extends GameObject {
-    private BonusPower bonus = new BonusPower(0, 0);
+public class Artifact extends GameObject {
+    private BonusPower bonus = new BonusPower();
 
-    public Artefact(int row, int column) {
+    public Artifact(int row, int column) {
         super(row, column);
     }
 
@@ -16,7 +16,7 @@ public class Artefact extends GameObject {
     }
 
     @Override
-    public Boolean isArtefact() {
+    public Boolean isArtifact() {
         return true;
     }
 

@@ -10,8 +10,8 @@ public class BonusPower {
     static private int MAX_BONUS_ATTACK = 5;
 
     BonusPower() {
-        bonusHealh += random.nextInt() % MAX_BONUS_HEALTH;
-        bonusAttack += random.nextInt() % MAX_BONUS_ATTACK;
+        bonusHealh += random.nextInt(MAX_BONUS_HEALTH);
+        bonusAttack += random.nextInt(MAX_BONUS_ATTACK);
     }
 
     BonusPower(int health, int attack) {
@@ -19,7 +19,7 @@ public class BonusPower {
         bonusAttack += attack % MAX_BONUS_ATTACK;
     }
 
-    public int getHealh() {
+    public int getHealth() {
         return bonusHealh;
     }
     public int getAttack() {
