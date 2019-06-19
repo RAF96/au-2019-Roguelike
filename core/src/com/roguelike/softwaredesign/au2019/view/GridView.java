@@ -71,7 +71,6 @@ public class GridView extends Group {
             );
             row++;
         }
-
     }
 
     private void drawMap(BitmapFont font, Batch batch) {

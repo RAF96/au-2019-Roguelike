@@ -105,7 +105,6 @@ public class Grid {
         int newRow = viewObj.getRow();
         int newCol = viewObj.getCol();
 //        System.out.println(movable.getClass() + " " + new Integer(newRow) + " " + new Integer(newCol));
-        System.out.println(data[newRow][newCol].isArtifact());
         if (isValidPos(newRow, newCol)) {
             if (data[newRow][newCol].isSpace()) {
                 GameObject movedObj = data[row][col].updatePos(newRow, newCol);
