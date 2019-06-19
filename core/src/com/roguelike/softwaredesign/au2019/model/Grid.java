@@ -10,6 +10,7 @@ import java.util.Random;
 
 // карта игры
 public class Grid {
+    private int step = 0;
     private int numRow;
     private int numCol;
     private GameObject[][] data;
@@ -58,6 +59,12 @@ public class Grid {
                     }
                 }
             }
+
+            ++step;
+            if (step % 10 == 0) {
+                ((Hero) data[viewHero.getRow()][viewHero.getColumn()]).levelUp();
+            }
+
             if (viewHero.isAlife()) {
                 return viewHero;
             } else {

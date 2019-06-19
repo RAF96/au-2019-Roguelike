@@ -40,4 +40,8 @@ public class ViewHero {
     public BonusPower getBonusPower() {
         return hero.getBonusPower();
     }
+
+    public int getLevel() {
+        return hero.getLevel();
+    }
 }

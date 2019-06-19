@@ -4,6 +4,7 @@ package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 // объект "герой"
 public class Hero extends Fighter {
     private BonusPower bonus = new BonusPower(0,0);
+    private int level = 0;
 
     public Hero(int row, int column, int health, int attack) {
         super(row, column, health, attack);
@@ -44,5 +45,15 @@ public class Hero extends Fighter {
 
     public BonusPower getBonusPower() {
         return bonus;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void levelUp() {
+        level += 1;
+        health += 5;
+        attack += 1;
     }
 }

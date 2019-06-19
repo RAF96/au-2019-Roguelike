@@ -57,6 +57,7 @@ public class GridView extends Group {
             ));
             put("Health", Integer.toString(hero.getHealth()));
             put("Attack", Integer.toString(hero.getAttack()));
+            put("Level", Integer.toString(hero.getLevel()));
         }};
         for (Map.Entry<String, String> element : features.entrySet()) {
             font.draw(batch,
