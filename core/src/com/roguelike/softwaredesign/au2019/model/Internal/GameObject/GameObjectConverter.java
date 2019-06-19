@@ -30,9 +30,10 @@ public class GameObjectConverter {
     private static HashMap<Character, BiFunction<Integer, Integer, GameObject>> factoryGameObject =
             new HashMap<Character, BiFunction<Integer, Integer, GameObject>>() {{
                 put(' ', (i, j) -> new Space(' ', i, j));
-                put('w', (i, j) -> new Border('w', i, j));
+                put('w', (i, j) -> new Artifact('w', i, j));
                 put('@', (i, j) -> new Hero('@', i, j, 21, 10));
                 put('#', (i, j) -> new Mob('#', getAction(), i, j, 10, 10));
+                put('+', (i, j) -> new Artifact('+', i, j));
             }};
 
     // по данному char возвращает конструктор соответствующего GameObject

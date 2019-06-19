@@ -32,27 +32,34 @@ public class CommonController extends ApplicationAdapter {
     public void render() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.draw();
-        if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
-            view.setGrid(model.moveHero("LEFT").getGrid());
-        } else if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-            view.setGrid(model.moveHero("UP").getGrid());
-        } else if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
-            view.setGrid(model.moveHero("RIGHT").getGrid());
-        } else if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
-            view.setGrid(model.moveHero("DOWN").getGrid());
+        if (model != null && model.getHero() != null && model.getHero().isAlife()) {
+            if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
+                model.moveHero("LEFT");
+            } else if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+                model.moveHero("UP");
+            } else if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
+                model.moveHero("RIGHT");
+            } else if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
+                model.moveHero("DOWN");
+            } else if (Gdx.input.isKeyJustPressed(Input.Keys.S)) {
+               model.saveLastState();
+            } else if (Gdx.input.isKeyJustPressed(Input.Keys.D)) {
+                model.heroDropArtifact();
+            }
+            view.set(model.getGrid(), model.getHero());
         }
     }
 
-    // генерация карты при нажати на кнопку Generate Map
+    // генерация карты при нажати на кнопку Generate GridView
     public void generateMap() {
         model = new Model();
-        view.setGrid(model.getGrid());
+        view.set(model.getGrid(), model.getHero());
     }
 
-    // загрузка карты при нажати на кнопку Load Map
+    // загрузка карты при нажати на кнопку Load GridView
     public void loadMapFromPath(String path) {
         model = new Model(path);
-        view.setGrid(model.getGrid());
+        view.set(model.getGrid(), model.getHero());
     }
 
     // константы игры
@@ -60,7 +67,8 @@ public class CommonController extends ApplicationAdapter {
         public static int ROWELEM = 15;
         public static int COLELEM = 15;
 
-        public static int ROW = Gdx.graphics.getHeight() / ROWELEM + 1;
+        public static int ROWVIEWHERO = 10;
+        public static int ROW = Gdx.graphics.getHeight() / ROWELEM + 1 - ROWVIEWHERO;
         public static int COL = Gdx.graphics.getWidth() / COLELEM + 1;
 
         public static String MAPSDIR = "./maps";
@@ -69,10 +77,12 @@ public class CommonController extends ApplicationAdapter {
         public static char SPACE = ' ';
         public static char HERO = '@';
         public static char MOB = '#';
+        public static char ARTEFACT = '+';
 
         public static int HEROROW = 20;
         public static int HEROCOL = 20;
 
         public static int MOBSNUM = 10;
+        public static final int ARTEFACTSNUM = 5;
     }
 }

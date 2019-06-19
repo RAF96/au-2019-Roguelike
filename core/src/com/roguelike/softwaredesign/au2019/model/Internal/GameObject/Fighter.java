@@ -78,4 +78,7 @@ public abstract class Fighter implements GameObject, Movable {
     public void updateAttack(int delta) {
         attack += delta;
     }
+
+    public void takeArtifact(Artifact artifact) {
+    }
 }

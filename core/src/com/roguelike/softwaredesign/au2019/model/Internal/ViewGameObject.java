@@ -3,8 +3,8 @@ package com.roguelike.softwaredesign.au2019.model.Internal;
 import com.roguelike.softwaredesign.au2019.model.Towards;
 
 public class ViewGameObject {
-    private Integer row;
-    private Integer col;
+    private int row;
+    private int col;
 
     public ViewGameObject(Integer row, Integer column) {
         this.row = row;
@@ -17,11 +17,11 @@ public class ViewGameObject {
         return this;
     }
 
-    public Integer getRow() {
+    public int getRow() {
         return row;
     }
 
-    public Integer getCol() {
+    public int getCol() {
         return col;
     }
 }
