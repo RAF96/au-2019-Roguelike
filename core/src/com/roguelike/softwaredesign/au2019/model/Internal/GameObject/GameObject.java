@@ -1,6 +1,5 @@
 package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
-import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
 import com.roguelike.softwaredesign.au2019.model.Towards;
 
 
@@ -46,10 +45,6 @@ public abstract class GameObject {
 
     public int getRow() {
         return row;
-    }
-
-    public ViewGameObject getView() {
-        return new ViewGameObject(getRow(), getColumn());
     }
 
 }

@@ -3,7 +3,6 @@ package com.roguelike.softwaredesign.au2019.model;
 import com.roguelike.softwaredesign.au2019.controller.CommonController;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameMap;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.*;
-import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
 import com.roguelike.softwaredesign.au2019.model.Internal.ViewHero;
 
 import java.util.Random;

@@ -2,7 +2,6 @@ package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
 
 import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.MobAction.Action;
-import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
 import com.roguelike.softwaredesign.au2019.model.Internal.ViewHero;
 
 
