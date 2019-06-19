@@ -72,6 +72,7 @@ public class CommonController extends ApplicationAdapter {
         public static int COL = Gdx.graphics.getWidth() / COLELEM + 1;
 
         public static String MAPSDIR = "./maps";
+        public static String GAMEDIR = "./games";
 
         public static char BORDER = 'w';
         public static char SPACE = ' ';
@@ -83,6 +84,6 @@ public class CommonController extends ApplicationAdapter {
         public static int HEROCOL = 20;
 
         public static int MOBSNUM = 10;
-        public static final int ARTEFACTSNUM = 5;
+        public static final int ARTIFACTSUM = 5;
     }
 }

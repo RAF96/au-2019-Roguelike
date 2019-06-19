@@ -1,6 +1,7 @@
 package com.roguelike.softwaredesign.au2019.model;
 
 import com.roguelike.softwaredesign.au2019.controller.CommonController;
+import com.roguelike.softwaredesign.au2019.model.Internal.SaveLoadData;
 import com.roguelike.softwaredesign.au2019.model.Internal.ViewHero;
 
 import java.util.Random;
@@ -35,7 +36,9 @@ public class Model {
         return grid;
     }
 
-    public void saveLastState() { // MOCK for plurial
+    public void saveLastState() {
+        String fileName = CommonController.Settings.GAMEDIR + "/" + "last";
+        SaveLoadData.saveData(fileName, grid.getNumRow(), grid.getNumCol(), grid.getData());
     }
 
     public void heroDropArtifact() {

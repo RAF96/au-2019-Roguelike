@@ -104,24 +104,6 @@ public class GameMap {
         frameGenerator(rand, --deep);
     }
 
-    private void saveMap() {
-        String fileName = CommonController.Settings.MAPSDIR + "/" + (new Random().nextInt(99999) + 10000);
-        File file = new File(fileName);
-        try {
-            file.createNewFile();
-            FileOutputStream dataOut = new FileOutputStream(file);
-            dataOut.write(row);
-            dataOut.write(col);
-            for (int j = 0; j < row; j++) {
-                for (int i = 0; i < col; i++) {
-                    dataOut.write(data[j][i]);
-                }
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
     private void generateMap() {
         Random random = new Random();
         frameGenerator(random, 20);
@@ -130,22 +112,13 @@ public class GameMap {
         saveMap();
     }
 
+    private void saveMap() {
+        String fileName = CommonController.Settings.MAPSDIR + "/" + (new Random().nextInt(99999) + 10000);
+        SaveLoadData.saveData(fileName, row, col, data);
+    }
+
     private void loadMap(String fileName) {
-        File file = new File(fileName);
-        try {
-            FileInputStream dataIn = new FileInputStream(file);
-            int loadRow = dataIn.read();
-            int loadCol = dataIn.read();
-            for (int j = 0; j < loadRow; j++) {
-                if (j >= row) continue;
-                for (int i = 0; i < loadCol; i++) {
-                    if (i >= col) continue;
-                    data[j][i] = (char) dataIn.read();
-                }
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        data = SaveLoadData.loadData(fileName, row, col);
     }
 
     // возвращает созданную карту

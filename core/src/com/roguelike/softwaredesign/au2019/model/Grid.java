@@ -41,7 +41,7 @@ public class Grid {
         }
 
 
-        for (int i = 0; i < CommonController.Settings.ARTEFACTSNUM; i++) {
+        for (int i = 0; i < CommonController.Settings.ARTIFACTSUM; i++) {
             gameMap[rand.nextInt(numRow - 1) + 1][rand.nextInt(numCol - 1) + 1] = CommonController.Settings.ARTEFACT;
         }
 
