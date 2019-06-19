@@ -32,7 +32,7 @@ public class GameObjectConverter {
                 put(' ', Space::new);
                 put('w', (i, j) -> new Border('w', i, j));
                 put('@', (i, j) -> new Hero(i, j, 20, 10));
-                put('#', (i, j) -> new Mob(getAction(), i, j, 20, 10));
+                put('#', (i, j) -> new Mob(getAction(), i, j, 10, 10));
             }};
 
     // по данному char возвращает конструктор соответствующего GameObject

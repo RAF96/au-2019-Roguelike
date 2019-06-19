@@ -18,7 +18,6 @@ public class Grid {
     private int numRow;
     private int numCol;
     private GameObject[][] data;
-    private List<Mob> mobs = new ArrayList<>();
 
     // инициализация карты сгенерированными границами
     public Grid(int row, int col) {
@@ -44,13 +43,6 @@ public class Grid {
         }
 
         data = GridConverter.from2dArray(gameMap);
-        for (int i = 0; i < numRow; i++) {
-            for (int j = 0; j < numCol; j++) {
-                if (data[i][j].isMob()) {
-                    mobs.add((Mob) data[i][j]);
-                }
-            }
-        }
     }
 
     // передвижение героя
@@ -58,8 +50,13 @@ public class Grid {
         if (data[row][col].isHero()) {
             System.out.println("HERO----------");
             ViewGameObject viewHero = moveCell(row, col, towards);
-            for (Mob mob: mobs) {
-                moveCell(mob.getRow(), mob.getColumn(), mob.getToward(viewHero));
+            for (int i = 0; i < numRow; i++) {
+                for (int j = 0; j < numCol; j++) {
+                    if (data[i][j].isMob()) {
+                        Mob mob = (Mob)data[i][j];
+                        moveCell(mob.getRow(), mob.getColumn(), mob.getToward(viewHero));
+                    }
+                }
             }
             return viewHero;
         } else {
