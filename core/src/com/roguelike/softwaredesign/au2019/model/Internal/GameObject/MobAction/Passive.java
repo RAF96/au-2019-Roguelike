@@ -5,8 +5,8 @@ import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
 
 
 public class Passive implements Action {
-    public String getToward(int heroRow, int heroCol) {
-        return "UP";
+    public String getToward(int row, int col, ViewGameObject hero) {
+        return "HERE";
     }
 
     public boolean fight(Fighter iam, Fighter fighter) {

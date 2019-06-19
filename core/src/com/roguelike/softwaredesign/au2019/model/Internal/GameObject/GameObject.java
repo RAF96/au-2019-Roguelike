@@ -32,9 +32,9 @@ public abstract class GameObject {
 
     abstract public char toChar();
 
-    public GameObject move(String towards) {
-        row += Towards.getDeltaRow(towards);
-        column += Towards.getDeltaColumn(towards);
+    public GameObject move(String toward) {
+        row += Towards.getDeltaRow(toward);
+        column += Towards.getDeltaColumn(toward);
         return this;
     }
 

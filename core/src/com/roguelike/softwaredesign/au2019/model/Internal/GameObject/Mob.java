@@ -24,8 +24,8 @@ public class Mob extends Fighter {
         return '#';
     }
 
-    public String getToward(int heroRow, int heroCol) {
-        return act.getToward(heroRow, heroCol);
+    public String getToward(ViewGameObject hero) {
+        return act.getToward(super.getRow(), super.getColumn(), hero);
     }
 
     @Override

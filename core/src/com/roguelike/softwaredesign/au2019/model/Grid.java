@@ -39,7 +39,7 @@ public class Grid {
 
         Random rand = new Random();
         for (int i = 0; i < CommonController.Settings.MOBSNUM; i++) {
-            gameMap[rand.nextInt(numRow - 1) + 1][rand.nextInt(numCol - 1) + 1]  = CommonController.Settings.MOB;
+            gameMap[rand.nextInt(numRow - 2) + 1][rand.nextInt(numCol - 2) + 1]  = CommonController.Settings.MOB;
         }
 
         data = GridConverter.from2dArray(gameMap);
@@ -54,14 +54,13 @@ public class Grid {
 
     // передвижение героя
     public ViewGameObject moveHero(int row, int col, String towards) {
-        System.out.println(new Integer(row) + " " + new Integer(col) + "\n");
         if (data[row][col].isHero()) {
+            ViewGameObject viewHero = moveCell(row, col, towards);
             for (Mob mob: mobs) {
-                moveCell(mob.getRow(), mob.getColumn(), mob.getToward(row, col));
+                moveCell(mob.getRow(), mob.getColumn(), mob.getToward(viewHero));
             }
-            return moveCell(row, col, towards);
+            return viewHero;
         } else {
-            System.out.println("NOT HERO");
             return null;
         }
     }
