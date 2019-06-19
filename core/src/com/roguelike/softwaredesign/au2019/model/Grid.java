@@ -2,14 +2,11 @@ package com.roguelike.softwaredesign.au2019.model;
 
 import com.roguelike.softwaredesign.au2019.controller.CommonController;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameMap;
-import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Fighter;
-import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.GameObject;
-import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Mob;
-import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Space;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.*;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Move.Movable;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Move.Spell;
 import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 
@@ -46,15 +43,23 @@ public class Grid {
     }
 
     // передвижение героя
-    public ViewGameObject moveHero(int row, int col, String towards) {
+    public ViewGameObject moveHero(int row, int col, String towards, boolean isConfused) {
         if (data[row][col].isHero()) {
             System.out.println("HERO----------");
-            ViewGameObject viewHero = moveCell(row, col, towards);
+            System.out.println(isConfused);
+            Hero hero = (Hero)data[row][col];
+            ViewGameObject viewHero;
+            if (isConfused) {
+                viewHero = moveCell(new Spell(hero), row, col, towards);
+            } else {
+                viewHero = moveCell(hero, row, col, towards);
+            }
+
             for (int i = 0; i < numRow; i++) {
                 for (int j = 0; j < numCol; j++) {
                     if (data[i][j].isMob()) {
                         Mob mob = (Mob)data[i][j];
-                        moveCell(mob.getRow(), mob.getColumn(), mob.getToward(viewHero));
+                        moveCell(mob, row, col, mob.getToward(viewHero));
                     }
                 }
             }
@@ -80,12 +85,13 @@ public class Grid {
         }
     }
 
-    private ViewGameObject moveCell(int row, int col, String towards) {
-        int newRow = row + Towards.getDeltaRow(towards);
-        int newCol = col + Towards.getDeltaColumn(towards);
+    private ViewGameObject moveCell(Movable movable, int row, int col, String towards) {
+        ViewGameObject viewObj = movable.nextPos(towards);
+        int newRow = viewObj.getRow();
+        int newCol = viewObj.getCol();
         if (isValidPos(newRow, newCol) && (data[newRow][newCol].isSpace() || isFreeField(row, col, newRow, newCol))) {
-            GameObject movedObj = data[row][col].move(towards);
-            data[row][col] = new Space(row, col);
+            GameObject movedObj = data[row][col].updatePos(newRow, newCol);
+            data[row][col] = new Space(' ', row, col);
             data[newRow][newCol] = movedObj;
             return movedObj.getView();
         }

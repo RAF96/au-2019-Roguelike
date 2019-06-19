@@ -10,11 +10,11 @@ public class SpaceTest {
 
     @Test
     public void isSpace() {
-        assertTrue(new Space(1, 1).isSpace());
+        assertTrue(new Space(' ', 1, 1).isSpace());
     }
 
     @Test
     public void toChar() {
-        assertEquals(new Space(1, 1).toChar(), ' ');
+        assertEquals(new Space(' ', 1, 1).toChar(), ' ');
     }
 }

@@ -1,50 +1,37 @@
 package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
 import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
-import com.roguelike.softwaredesign.au2019.model.Towards;
 
 
-// класс-родитель всех объектов карты
-public abstract class GameObject {
-    private int row;
-    private int column;
-
-    public GameObject(int row, int column) {
-        this.row = row;
-        this.column = column;
-    }
-
-    public Boolean isHero() { return false; }
-
-    public Boolean isSpace() {
+// интерфейс всех объектов карты
+public interface GameObject {
+    default Boolean isSpace() {
         return false;
     }
 
-    public Boolean isBorder() {
+    default Boolean isBorder() {
         return false;
     }
 
-    public Boolean isMob() {
+    default Boolean isFighter() {
         return false;
     }
 
-    abstract public char toChar();
-
-    public GameObject move(String toward) {
-        row += Towards.getDeltaRow(toward);
-        column += Towards.getDeltaColumn(toward);
-        return this;
+    default Boolean isHero() {
+        return false;
     }
 
-    public int getColumn() {
-        return column;
-    }
+    default Boolean isMob() { return false; }
 
-    public int getRow() {
-        return row;
-    }
+    char toChar();
 
-    public ViewGameObject getView() {
-        return new ViewGameObject(getRow(), getColumn());
+    int getCol();
+
+    int getRow();
+
+    GameObject updatePos(int newRow, int newCol);
+
+    default ViewGameObject getView() {
+        return new ViewGameObject(getRow(), getCol());
     }
 }

@@ -29,10 +29,10 @@ public class GameObjectConverter {
 
     private static HashMap<Character, BiFunction<Integer, Integer, GameObject>> factoryGameObject =
             new HashMap<Character, BiFunction<Integer, Integer, GameObject>>() {{
-                put(' ', Space::new);
+                put(' ', (i, j) -> new Space(' ', i, j));
                 put('w', (i, j) -> new Border('w', i, j));
-                put('@', (i, j) -> new Hero(i, j, 20, 10));
-                put('#', (i, j) -> new Mob(getAction(), i, j, 10, 10));
+                put('@', (i, j) -> new Hero('@', i, j, 20, 10));
+                put('#', (i, j) -> new Mob('#', getAction(), i, j, 10, 10));
             }};
 
     // по данному char возвращает конструктор соответствующего GameObject
