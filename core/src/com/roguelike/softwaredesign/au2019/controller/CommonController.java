@@ -32,7 +32,7 @@ public class CommonController extends ApplicationAdapter {
     public void render() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.draw();
-        if (model != null) {
+        if (model != null && model.getHero() != null && model.getHero().isAlife()) {
             if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
                 model.moveHero("LEFT");
             } else if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
@@ -45,9 +45,6 @@ public class CommonController extends ApplicationAdapter {
                model.saveLastState();
             } else if (Gdx.input.isKeyJustPressed(Input.Keys.D)) {
                 model.heroDropArtifact();
-            }
-            if (model.getHero() == null || !model.getHero().isAlife()){
-                System.exit(0);
             }
             view.set(model.getGrid(), model.getHero());
         }

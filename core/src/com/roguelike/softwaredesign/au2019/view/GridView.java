@@ -50,6 +50,10 @@ public class GridView extends Group {
     private void drawHero(BitmapFont font, Batch batch) {
         int row = CommonController.Settings.ROW + 1;
         int rowElement = CommonController.Settings.ROWELEM;
+        if (hero == null || !hero.isAlife()) {
+            font.draw(batch, "You are died!", 0, row * rowElement);
+            return ;
+        }
         Map<String, String> features = new TreeMap<String, String>() {{
             put("Artifact", String.format("health: %d, attack %d",
                                              hero.getBonusPower().getHealth(),

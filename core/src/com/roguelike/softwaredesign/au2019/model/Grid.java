@@ -61,7 +61,7 @@ public class Grid {
             }
 
             ++step;
-            if (step % 10 == 0) {
+            if (step % 10 == 0 && viewHero.isAlife()) {
                 ((Hero) data[viewHero.getRow()][viewHero.getColumn()]).levelUp();
             }
 
@@ -92,9 +92,8 @@ public class Grid {
             Fighter iam = (Fighter)data[row][col];
             Fighter fighter = (Fighter)data[newRow][newCol];
             return iam.fight(fighter);
-        } else {
-            return false;
         }
+        return false;
     }
 
     private boolean moveCell(int row, int col, String towards) {
