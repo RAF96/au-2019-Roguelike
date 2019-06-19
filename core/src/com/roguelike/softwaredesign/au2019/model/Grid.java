@@ -2,6 +2,7 @@ package com.roguelike.softwaredesign.au2019.model;
 
 import com.roguelike.softwaredesign.au2019.controller.CommonController;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameMap;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Fighter;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.GameObject;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Mob;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Space;
@@ -17,7 +18,6 @@ public class Grid {
     private int numRow;
     private int numCol;
     private GameObject[][] data;
-    private List<Mob> mobs = new ArrayList<>();
 
     // инициализация карты сгенерированными границами
     public Grid(int row, int col) {
@@ -39,7 +39,7 @@ public class Grid {
 
         Random rand = new Random();
         for (int i = 0; i < CommonController.Settings.MOBSNUM; i++) {
-            gameMap[rand.nextInt(numRow - 1) + 1][rand.nextInt(numCol - 1) + 1]  = CommonController.Settings.MOB;
+            gameMap[rand.nextInt(numRow - 2) + 1][rand.nextInt(numCol - 2) + 1]  = CommonController.Settings.MOB;
         }
 
 
@@ -48,25 +48,23 @@ public class Grid {
         }
 
         data = GridConverter.from2dArray(gameMap);
-        for (int i = 0; i < numRow; i++) {
-            for (int j = 0; j < numCol; j++) {
-                if (data[i][j].isMob()) {
-                    mobs.add((Mob) data[i][j]);
-                }
-            }
-        }
     }
 
     // передвижение героя
     public ViewGameObject moveHero(int row, int col, String towards) {
-        System.out.println(new Integer(row) + " " + new Integer(col) + "\n");
         if (data[row][col].isHero()) {
-            for (Mob mob: mobs) {
-                moveCell(mob.getRow(), mob.getColumn(), mob.getToward(row, col));
+            System.out.println("HERO----------");
+            ViewGameObject viewHero = moveCell(row, col, towards);
+            for (int i = 0; i < numRow; i++) {
+                for (int j = 0; j < numCol; j++) {
+                    if (data[i][j].isMob()) {
+                        Mob mob = (Mob)data[i][j];
+                        moveCell(mob.getRow(), mob.getColumn(), mob.getToward(viewHero));
+                    }
+                }
             }
-            return moveCell(row, col, towards);
+            return viewHero;
         } else {
-            System.out.println("NOT HERO");
             return null;
         }
     }
@@ -75,11 +73,22 @@ public class Grid {
         return row < numRow && col < numCol && row > 0 && col > 0;
     }
 
-    // передвижение объектов карты
-    public ViewGameObject moveCell(int row, int col, String towards) {
+    private boolean isFreeField(int row, int col, int newRow, int newCol) {
+        if (data[newRow][newCol].isMob() || data[newRow][newCol].isHero()) {
+            System.out.println(data[newRow][newCol].getClass().toString());
+            System.out.println("HERE");
+            Fighter iam = (Fighter)data[row][col];
+            Fighter fighter = (Fighter)data[newRow][newCol];
+            return iam.fight(fighter);
+        } else {
+            return false;
+        }
+    }
+
+    private ViewGameObject moveCell(int row, int col, String towards) {
         int newRow = row + Towards.getDeltaRow(towards);
         int newCol = col + Towards.getDeltaColumn(towards);
-        if (isValidPos(newRow, newCol) && data[newRow][newCol].isSpace()) {
+        if (isValidPos(newRow, newCol) && (data[newRow][newCol].isSpace() || isFreeField(row, col, newRow, newCol))) {
             GameObject movedObj = data[row][col].move(towards);
             data[row][col] = new Space(row, col);
             data[newRow][newCol] = movedObj;

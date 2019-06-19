@@ -25,7 +25,6 @@ public class CommonController extends ApplicationAdapter {
         new File(Settings.MAPSDIR).mkdirs();
         stage.addActor(view);
         Gdx.input.setInputProcessor(stage);
-        System.out.println(new Integer(Settings.ROW) + " " + new Integer(Settings.COL) + "\n");
     }
 
     // отрисовка сцены
