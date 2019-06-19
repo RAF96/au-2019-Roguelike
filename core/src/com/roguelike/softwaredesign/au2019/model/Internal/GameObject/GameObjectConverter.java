@@ -31,7 +31,7 @@ public class GameObjectConverter {
             new HashMap<Character, BiFunction<Integer, Integer, GameObject>>() {{
                 put(' ', (i, j) -> new Space(' ', i, j));
                 put('w', (i, j) -> new Border('w', i, j));
-                put('@', (i, j) -> new Hero('@', i, j, 20, 10));
+                put('@', (i, j) -> new Hero('@', i, j, 21, 10));
                 put('#', (i, j) -> new Mob('#', getAction(), i, j, 10, 10));
             }};
 

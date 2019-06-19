@@ -7,7 +7,7 @@ import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Move.Movabl
 import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Move.Spell;
 import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
 
-import java.util.Random;
+import java.util.*;
 
 
 // карта игры
@@ -15,6 +15,7 @@ public class Grid {
     private int numRow;
     private int numCol;
     private GameObject[][] data;
+    private Set<Mob> mobs;
 
     // инициализация карты сгенерированными границами
     public Grid(int row, int col) {
@@ -40,6 +41,15 @@ public class Grid {
         }
 
         data = GridConverter.from2dArray(gameMap);
+
+        mobs = new HashSet<>();
+        for (int i = 0; i < numRow; i++) {
+            for (int j = 0; j < numCol; j++) {
+                if (data[i][j].isMob()) {
+                    mobs.add((Mob)data[i][j]);
+                }
+            }
+        }
     }
 
     // передвижение героя
@@ -55,14 +65,17 @@ public class Grid {
                 viewHero = moveCell(hero, row, col, towards);
             }
 
-            for (int i = 0; i < numRow; i++) {
-                for (int j = 0; j < numCol; j++) {
-                    if (data[i][j].isMob()) {
-                        Mob mob = (Mob)data[i][j];
-                        moveCell(mob, row, col, mob.getToward(viewHero));
+            Set<Mob> newMobs = new HashSet<>();
+            for (Mob mob : mobs) {
+                ViewGameObject newPos = moveCell(mob, mob.getRow(), mob.getCol(), mob.getToward(viewHero));
+                if (newPos != null) {
+                    GameObject gameObject = data[newPos.getRow()][newPos.getCol()];
+                    if (gameObject.isMob()) {
+                        newMobs.add((Mob) gameObject);
                     }
                 }
             }
+            mobs = newMobs;
             return viewHero;
         } else {
             return null;
@@ -73,27 +86,35 @@ public class Grid {
         return row < numRow && col < numCol && row > 0 && col > 0;
     }
 
-    private boolean isFreeField(int row, int col, int newRow, int newCol) {
-        if (data[newRow][newCol].isMob() || data[newRow][newCol].isHero()) {
-            System.out.println(data[newRow][newCol].getClass().toString());
-            System.out.println("HERE");
-            Fighter iam = (Fighter)data[row][col];
-            Fighter fighter = (Fighter)data[newRow][newCol];
-            return iam.fight(fighter);
-        } else {
-            return false;
-        }
-    }
-
     private ViewGameObject moveCell(Movable movable, int row, int col, String towards) {
         ViewGameObject viewObj = movable.nextPos(towards);
         int newRow = viewObj.getRow();
         int newCol = viewObj.getCol();
-        if (isValidPos(newRow, newCol) && (data[newRow][newCol].isSpace() || isFreeField(row, col, newRow, newCol))) {
-            GameObject movedObj = data[row][col].updatePos(newRow, newCol);
-            data[row][col] = new Space(' ', row, col);
-            data[newRow][newCol] = movedObj;
-            return movedObj.getView();
+        System.out.println(movable.getClass() + " " + new Integer(newRow) + " " + new Integer(newCol));
+        if (isValidPos(newRow, newCol)) {
+            if (data[newRow][newCol].isSpace()) {
+                GameObject movedObj = data[row][col].updatePos(newRow, newCol);
+                data[row][col] = new Space(' ', row, col);
+                data[newRow][newCol] = movedObj;
+                return movedObj.getView();
+            }
+            if (data[newRow][newCol].isFighter()) {
+                System.out.println("FIGHT!!");
+                System.out.println(data[row][col].getClass().toString() + " " + new Integer(row) + " " + new Integer(col));
+                System.out.println(data[newRow][newCol].getClass().toString() + " " + new Integer(newRow) + " " + new Integer(newCol));
+
+                Fighter iam = (Fighter)data[row][col];
+                Fighter fighter = (Fighter)data[newRow][newCol];
+                if (iam.fight(fighter)) {
+                    GameObject movedObj = data[row][col].updatePos(newRow, newCol);
+                    data[row][col] = new Space(' ', row, col);
+                    data[newRow][newCol] = movedObj;
+                    return movedObj.getView();
+                } else {
+                    data[row][col] = new Space(' ', row, col);
+                    return null;
+                }
+            }
         }
         return data[row][col].getView();
     }

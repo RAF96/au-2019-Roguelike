@@ -21,7 +21,7 @@ public class Model {
     }
 
     private boolean isConfused() {
-        return rand.nextInt(10) % 10 == 0;
+        return rand.nextInt(20) % 10 == 0;
     }
 
     public Model moveHero(String direction) {

@@ -53,7 +53,7 @@ public abstract class Fighter implements GameObject, Movable {
         while (true) {
             fighter.updateHealth(-attack);
             if (fighter.getHealth() > 0) {
-                updateHealth(fighter.getAttack());
+                updateHealth(-fighter.getAttack());
                 if (getHealth() <= 0) {
                     return false;
                 }
