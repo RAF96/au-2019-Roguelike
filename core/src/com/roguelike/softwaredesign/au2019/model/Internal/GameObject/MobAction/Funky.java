@@ -1,11 +1,10 @@
 package com.roguelike.softwaredesign.au2019.model.Internal.GameObject.MobAction;
 
-import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Fighter;
-import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
+import com.roguelike.softwaredesign.au2019.model.Internal.ViewHero;
 
 
 public class Funky implements Action {
-    public String getToward(int row, int col, ViewGameObject hero) {
+    public String getToward(int row, int col, ViewHero hero) {
         int deltaRow = row - hero.getRow();
         int deltaCol = col - hero.getColumn();
         if (Math.abs(deltaRow) > Math.abs(deltaCol)) {

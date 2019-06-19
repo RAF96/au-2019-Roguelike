@@ -4,6 +4,7 @@ import com.roguelike.softwaredesign.au2019.controller.CommonController;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameMap;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.*;
 import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
+import com.roguelike.softwaredesign.au2019.model.Internal.ViewHero;
 
 import java.util.Random;
 
@@ -46,9 +47,10 @@ public class Grid {
     }
 
     // передвижение героя
-    public ViewGameObject moveHero(int row, int col, String towards) {
+    public ViewHero moveHero(int row, int col, String towards) {
         if (data[row][col].isHero()) {
-            ViewGameObject viewHero = moveCell(row, col, towards);
+            ViewHero viewHero = new ViewHero((Hero) data[row][col]);
+            boolean flag = moveCell(row, col, towards);
             for (int i = 0; i < numRow; i++) {
                 for (int j = 0; j < numCol; j++) {
                     if (data[i][j].isMob()) {
@@ -57,7 +59,11 @@ public class Grid {
                     }
                 }
             }
-            return viewHero;
+            if (viewHero.isAlife()) {
+                return viewHero;
+            } else {
+                return null;
+            }
         } else {
             return null;
         }
@@ -85,16 +91,16 @@ public class Grid {
         }
     }
 
-    private ViewGameObject moveCell(int row, int col, String towards) {
+    private boolean moveCell(int row, int col, String towards) {
         int newRow = row + Towards.getDeltaRow(towards);
         int newCol = col + Towards.getDeltaColumn(towards);
         if (isValidPos(newRow, newCol) && (isFreeField(row, col, newRow, newCol))) {
             GameObject movedObj = data[row][col].move(towards);
             data[row][col] = new Space(row, col);
             data[newRow][newCol] = movedObj;
-            return movedObj.getView();
+            return true;
         }
-        return data[row][col].getView();
+        return false;
     }
 
     // перевести объекты карты в массив char'ов
@@ -110,5 +116,15 @@ public class Grid {
     // вернуть ширину
     public int getNumCol() {
         return numCol;
+    }
+
+    public ViewHero getViewHero() {
+        for (int i = 0; i < numRow; i++) {
+            for (int j = 0; j < numCol; j++) {
+                if (data[i][j].isHero())
+                    return new ViewHero((Hero) data[i][j]);
+            }
+        }
+        return null;
     }
 }

@@ -40,4 +40,8 @@ public class Hero extends Fighter {
     public int getAttack() {
         return bonus.getAttack() + this.attack;
     }
+
+    public boolean isAlife() {
+        return getHealth() > 0;
+    }
 }

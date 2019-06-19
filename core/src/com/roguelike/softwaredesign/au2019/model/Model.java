@@ -2,19 +2,22 @@ package com.roguelike.softwaredesign.au2019.model;
 
 import com.roguelike.softwaredesign.au2019.controller.CommonController;
 import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
+import com.roguelike.softwaredesign.au2019.model.Internal.ViewHero;
 
 
 // модель игры: карта + игрок
 public class Model {
     private Grid grid;
-    private ViewGameObject hero = new ViewGameObject(CommonController.Settings.HEROROW, CommonController.Settings.HEROCOL);
+    private ViewHero hero;
 
     public Model() {
         grid = new Grid(CommonController.Settings.ROW, CommonController.Settings.COL);
+        hero = grid.getViewHero();
     }
 
     public Model(String path) {
         grid = new Grid(path, CommonController.Settings.ROW, CommonController.Settings.COL);
+        hero = grid.getViewHero();
     }
 
     public Model moveHero(String direction) {
@@ -27,5 +30,9 @@ public class Model {
     }
 
     public void saveLastState() { // MOCK for plurial
+    }
+
+    public void heroDropArtefact() {
+        hero.dropArtefact();
     }
 }
