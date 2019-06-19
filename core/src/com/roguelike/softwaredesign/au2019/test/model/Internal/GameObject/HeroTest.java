@@ -9,11 +9,11 @@ public class HeroTest {
 
     @Test
     public void isHero() {
-        assertTrue(new Hero(1, 1).isHero());
+        assertTrue(new Hero('@', 1, 1, 10, 10).isHero());
     }
 
     @Test
     public void toChar() {
-        assertEquals(new Hero(1, 1).toChar(), '@');
+        assertEquals(new Hero('@', 1, 1, 10, 10).toChar(), '@');
     }
 }

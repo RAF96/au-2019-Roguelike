@@ -11,6 +11,7 @@ public class Towards {
         put("UP", 0);
         put("RIGHT", 1);
         put("DOWN", 0);
+        put("HERE", 0);
     }};
 
     static private Map<String, Integer> deltaRow = new HashMap<String, Integer>() {{
@@ -18,8 +19,8 @@ public class Towards {
         put("UP", 1);
         put("RIGHT", 0);
         put("DOWN", -1);
+        put("HERE", 0);
     }};
-
 
     // изменение строки
     public static Integer getDeltaRow(String towards) {
@@ -30,5 +31,4 @@ public class Towards {
     public static Integer getDeltaColumn(String towards) {
         return deltaColumn.get(towards);
     }
-
 }

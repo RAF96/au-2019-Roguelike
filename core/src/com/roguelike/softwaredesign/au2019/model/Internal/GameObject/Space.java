@@ -2,10 +2,23 @@ package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
 
 // объект "пустое пространство"
-public class Space extends GameObject {
+public class Space implements GameObject {
 
-    public Space(int row, int column) {
-        super(row, column);
+    private char symb;
+    private int row;
+    private int col;
+
+    public Space(char symb, int row, int col) {
+        this.symb = symb;
+        this.row = row;
+        this.col = col;
+    }
+
+    @Override
+    public GameObject updatePos(int newRow, int newCol) {
+        row = newRow;
+        col = newCol;
+        return this;
     }
 
     @Override
@@ -15,6 +28,16 @@ public class Space extends GameObject {
 
     @Override
     public char toChar() {
-        return ' ';
+        return symb;
+    }
+
+    @Override
+    public int getRow() {
+        return row;
+    }
+
+    @Override
+    public int getCol() {
+        return col;
     }
 }
