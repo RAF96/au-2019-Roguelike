@@ -14,9 +14,7 @@ public abstract class GameObject {
         this.column = column;
     }
 
-    public Boolean isHero() {
-        return false;
-    }
+    public Boolean isHero() { return false; }
 
     public Boolean isSpace() {
         return false;

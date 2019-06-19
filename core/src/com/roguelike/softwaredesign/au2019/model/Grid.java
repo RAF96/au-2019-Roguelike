@@ -2,6 +2,7 @@ package com.roguelike.softwaredesign.au2019.model;
 
 import com.roguelike.softwaredesign.au2019.controller.CommonController;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameMap;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Fighter;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.GameObject;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Mob;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Space;
@@ -69,11 +70,22 @@ public class Grid {
         return row < numRow && col < numCol && row > 0 && col > 0;
     }
 
-    // передвижение объектов карты
-    public ViewGameObject moveCell(int row, int col, String towards) {
+    private boolean isFreeField(int row, int col, int newRow, int newCol) {
+        if (data[newRow][newCol].isMob() || data[newRow][newCol].isHero()) {
+            System.out.println("HERE");
+            Fighter iam = (Fighter)data[row][col];
+//            Fighter fighter = (Fighter)data[newCol][newRow];
+//            return iam.fight(fighter);
+            return false;
+        } else {
+            return false;
+        }
+    }
+
+    private ViewGameObject moveCell(int row, int col, String towards) {
         int newRow = row + Towards.getDeltaRow(towards);
         int newCol = col + Towards.getDeltaColumn(towards);
-        if (isValidPos(newRow, newCol) && data[newRow][newCol].isSpace()) {
+        if (isValidPos(newRow, newCol) && (data[newRow][newCol].isSpace() || isFreeField(row, col, newRow, newCol))) {
             GameObject movedObj = data[row][col].move(towards);
             data[row][col] = new Space(row, col);
             data[newRow][newCol] = movedObj;
