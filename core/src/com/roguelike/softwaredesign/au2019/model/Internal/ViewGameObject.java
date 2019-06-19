@@ -1,7 +1,5 @@
 package com.roguelike.softwaredesign.au2019.model.Internal;
 
-
-//
 public class ViewGameObject {
     private Integer row;
     private Integer column;

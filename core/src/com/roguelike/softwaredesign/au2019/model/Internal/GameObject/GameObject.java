@@ -6,10 +6,10 @@ import com.roguelike.softwaredesign.au2019.model.Towards;
 
 // класс-родитель всех объектов карты
 public abstract class GameObject {
-    private Integer row;
-    private Integer column;
+    private int row;
+    private int column;
 
-    GameObject(int row, int column) {
+    public GameObject(int row, int column) {
         this.row = row;
         this.column = column;
     }
@@ -23,6 +23,10 @@ public abstract class GameObject {
     }
 
     public Boolean isBorder() {
+        return false;
+    }
+
+    public Boolean isMob() {
         return false;
     }
 

@@ -33,8 +33,8 @@ public class Map extends Group {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        int row = grid.getRow();
-        int col = grid.getCol();
+        int row = grid.getNumRow();
+        int col = grid.getNumCol();
         char[][] data = grid.getData();
         int rowElement = CommonController.Settings.ROWELEM;
         int colElement = CommonController.Settings.COLELEM;

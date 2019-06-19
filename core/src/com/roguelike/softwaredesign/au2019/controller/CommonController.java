@@ -25,6 +25,7 @@ public class CommonController extends ApplicationAdapter {
         new File(Settings.MAPSDIR).mkdirs();
         stage.addActor(view);
         Gdx.input.setInputProcessor(stage);
+        System.out.println(new Integer(Settings.ROW) + " " + new Integer(Settings.COL) + "\n");
     }
 
     // отрисовка сцены
@@ -68,8 +69,11 @@ public class CommonController extends ApplicationAdapter {
         public static char BORDER = 'w';
         public static char SPACE = ' ';
         public static char HERO = '@';
+        public static char MOB = '#';
 
         public static int HEROROW = 20;
         public static int HEROCOL = 20;
+
+        public static int MOBSNUM = 10;
     }
 }

@@ -1,17 +1,35 @@
 package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
-public class Mob extends GameObject {
-    public Mob(int row, int col) {
-        super(row, col);
+
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.MobAction.Action;
+import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
+
+
+// персонаж
+public class Mob extends Fighter {
+    private Action act;
+
+    public Mob(Action act, int row, int col, int health, int attack) {
+        super(row, col, health, attack);
+        this.act = act;
     }
 
     @Override
-    public Boolean isBorder() {
-        return false;
+    public Boolean isMob() {
+        return true;
     }
 
     @Override
     public char toChar() {
-        return '%';
+        return '#';
+    }
+
+    public String getToward(int heroRow, int heroCol) {
+        return act.getToward(heroRow, heroCol);
+    }
+
+    @Override
+    public boolean fight(Fighter fighter) {
+        return act.fight(this, fighter);
     }
 }

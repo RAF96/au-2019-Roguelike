@@ -1,11 +1,13 @@
 package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
 
-// объект "герой"
-public class Hero extends GameObject {
+import com.roguelike.softwaredesign.au2019.model.Towards;
 
-    public Hero(int row, int column) {
-        super(row, column);
+// объект "герой"
+public class Hero extends Fighter {
+
+    public Hero(int row, int column, int health, int attack) {
+        super(row, column, health, attack);
     }
 
     @Override
