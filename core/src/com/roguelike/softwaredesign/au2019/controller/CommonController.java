@@ -41,6 +41,8 @@ public class CommonController extends ApplicationAdapter {
             view.setGrid(model.moveHero("RIGHT").getGrid());
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
             view.setGrid(model.moveHero("DOWN").getGrid());
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.S)) {
+           model.saveLastState();
         }
     }
 

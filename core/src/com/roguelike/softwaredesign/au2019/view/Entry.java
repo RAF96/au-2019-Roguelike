@@ -20,7 +20,9 @@ public class Entry extends Group {
     private TextField error;
     private TextField path;
     private Button generate;
-    private Button load;
+    private Button loadMap;
+    private Button loadLast;
+
 
     public Entry(CommonController commonController) {
         super();
@@ -47,7 +49,7 @@ public class Entry extends Group {
         errorStyle.font = style.font;
         errorStyle.fontColor = new Color(1, 0, 0, 1);
         error = new TextField("", errorStyle);
-        error.setPosition(200, 140);
+        error.setPosition(200, 120);
         addActor(error);
 
         TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle();
@@ -57,9 +59,9 @@ public class Entry extends Group {
         path.setPosition(200, 160);
         addActor(path);
 
-        load = new TextButton("Load map", style);
-        load.setPosition(200, 180);
-        load.addListener(new ClickListener() {
+        loadMap = new TextButton("Load map", style);
+        loadMap.setPosition(200, 180);
+        loadMap.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 String text = path.getText();
@@ -73,7 +75,25 @@ public class Entry extends Group {
                 super.clicked(event, x, y);
             }
         });
-        addActor(load);
+        addActor(loadMap);
+
+        loadLast = new TextButton("Load last game", style);
+        loadLast.setPosition(200, 140);
+        loadLast.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                String text = "maps/last";
+                boolean fileExist = new File(text).isFile();
+                if (!fileExist) {
+                    error.setText("There isn't last game");
+                    return ;
+                }
+                commonController.loadMapFromPath(text);
+                Entry.this.addAction(Actions.removeActor(Entry.this));
+                super.clicked(event, x, y);
+            }
+        });
+        addActor(loadLast);
     }
 
     // отрисовка

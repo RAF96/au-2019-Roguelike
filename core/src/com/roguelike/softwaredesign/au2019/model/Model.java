@@ -25,4 +25,7 @@ public class Model {
     public Grid getGrid() {
         return grid;
     }
+
+    public void saveLastState() { // MOCK for plurial
+    }
 }
