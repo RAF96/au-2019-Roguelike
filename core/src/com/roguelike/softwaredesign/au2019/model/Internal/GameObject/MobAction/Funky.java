@@ -22,8 +22,4 @@ public class Funky implements Action {
             }
         }
     }
-
-    public boolean fight(Fighter iam, Fighter fighter) {
-        return fighter.fight(iam);
-    }
 }

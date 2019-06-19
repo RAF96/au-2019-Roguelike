@@ -8,8 +8,4 @@ public class Passive implements Action {
     public String getToward(int row, int col, ViewGameObject hero) {
         return "HERE";
     }
-
-    public boolean fight(Fighter iam, Fighter fighter) {
-        return fighter.fight(iam);
-    }
 }

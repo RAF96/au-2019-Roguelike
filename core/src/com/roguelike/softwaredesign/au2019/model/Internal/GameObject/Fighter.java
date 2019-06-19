@@ -18,7 +18,7 @@ public abstract class Fighter extends GameObject {
             fighter.updateHealth(-attack);
             if (fighter.getHealth() > 0) {
                 updateHealth(fighter.getAttack());
-                if (getHealth() < 0) {
+                if (getHealth() <= 0) {
                     return false;
                 }
             } else {

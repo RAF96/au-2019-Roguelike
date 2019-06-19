@@ -22,8 +22,4 @@ public class Angry implements Action {
             }
         }
     }
-
-    public boolean fight(Fighter iam, Fighter fighter) {
-        return iam.fight(fighter);
-    }
 }

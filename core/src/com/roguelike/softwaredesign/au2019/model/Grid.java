@@ -56,6 +56,7 @@ public class Grid {
     // передвижение героя
     public ViewGameObject moveHero(int row, int col, String towards) {
         if (data[row][col].isHero()) {
+            System.out.println("HERO----------");
             ViewGameObject viewHero = moveCell(row, col, towards);
             for (Mob mob: mobs) {
                 moveCell(mob.getRow(), mob.getColumn(), mob.getToward(viewHero));
@@ -72,11 +73,11 @@ public class Grid {
 
     private boolean isFreeField(int row, int col, int newRow, int newCol) {
         if (data[newRow][newCol].isMob() || data[newRow][newCol].isHero()) {
+            System.out.println(data[newRow][newCol].getClass().toString());
             System.out.println("HERE");
             Fighter iam = (Fighter)data[row][col];
-//            Fighter fighter = (Fighter)data[newCol][newRow];
-//            return iam.fight(fighter);
-            return false;
+            Fighter fighter = (Fighter)data[newRow][newCol];
+            return iam.fight(fighter);
         } else {
             return false;
         }
