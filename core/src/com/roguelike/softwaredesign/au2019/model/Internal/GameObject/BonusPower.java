@@ -18,4 +18,11 @@ public class BonusPower {
         bonusHealh += health % MAX_BONUS_HEALTH;
         bonusAttack += attack % MAX_BONUS_ATTACK;
     }
+
+    public int getHealh() {
+        return bonusHealh;
+    }
+    public int getAttack() {
+        return bonusAttack;
+    }
 }

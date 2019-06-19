@@ -28,6 +28,10 @@ public abstract class GameObject {
         return false;
     }
 
+    public Boolean isArtefact() {
+        return false;
+    }
+
     abstract public char toChar();
 
     public GameObject move(String toward) {
@@ -47,4 +51,5 @@ public abstract class GameObject {
     public ViewGameObject getView() {
         return new ViewGameObject(getRow(), getColumn());
     }
+
 }

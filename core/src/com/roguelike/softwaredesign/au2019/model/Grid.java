@@ -2,14 +2,9 @@ package com.roguelike.softwaredesign.au2019.model;
 
 import com.roguelike.softwaredesign.au2019.controller.CommonController;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameMap;
-import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Fighter;
-import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.GameObject;
-import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Mob;
-import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Space;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.*;
 import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 
@@ -53,7 +48,6 @@ public class Grid {
     // передвижение героя
     public ViewGameObject moveHero(int row, int col, String towards) {
         if (data[row][col].isHero()) {
-            System.out.println("HERO----------");
             ViewGameObject viewHero = moveCell(row, col, towards);
             for (int i = 0; i < numRow; i++) {
                 for (int j = 0; j < numCol; j++) {
@@ -74,9 +68,15 @@ public class Grid {
     }
 
     private boolean isFreeField(int row, int col, int newRow, int newCol) {
+        if (data[newRow][newCol].isSpace()) {
+            return true;
+        }
+        if (data[newRow][newCol].isArtefact()) {
+            Fighter fighter = (Fighter) data[row][col];
+            fighter.takeArtefact((Artefact) data[newRow][newCol]);
+            return true;
+        }
         if (data[newRow][newCol].isMob() || data[newRow][newCol].isHero()) {
-            System.out.println(data[newRow][newCol].getClass().toString());
-            System.out.println("HERE");
             Fighter iam = (Fighter)data[row][col];
             Fighter fighter = (Fighter)data[newRow][newCol];
             return iam.fight(fighter);
@@ -88,7 +88,7 @@ public class Grid {
     private ViewGameObject moveCell(int row, int col, String towards) {
         int newRow = row + Towards.getDeltaRow(towards);
         int newCol = col + Towards.getDeltaColumn(towards);
-        if (isValidPos(newRow, newCol) && (data[newRow][newCol].isSpace() || isFreeField(row, col, newRow, newCol))) {
+        if (isValidPos(newRow, newCol) && (isFreeField(row, col, newRow, newCol))) {
             GameObject movedObj = data[row][col].move(towards);
             data[row][col] = new Space(row, col);
             data[newRow][newCol] = movedObj;

@@ -14,4 +14,13 @@ public class Artefact extends GameObject {
     public char toChar() {
         return '+';
     }
+
+    @Override
+    public Boolean isArtefact() {
+        return true;
+    }
+
+    public BonusPower getBonusPower() {
+        return bonus;
+    }
 }
