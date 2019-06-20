@@ -1,7 +1,9 @@
 package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
 
-// объект "препятствие"
+/**
+ * объект "препятствие"
+ */
 public class Border extends GameObject {
     private char symb;
 

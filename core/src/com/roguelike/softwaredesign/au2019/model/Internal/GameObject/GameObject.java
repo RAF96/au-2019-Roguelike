@@ -4,7 +4,9 @@ import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
 import com.roguelike.softwaredesign.au2019.model.Towards;
 
 
-// класс-родитель всех объектов карты
+/**
+ * класс-родитель всех объектов карты
+ */
 public abstract class GameObject {
     private Integer row;
     private Integer column;

@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.function.BiFunction;
 
 
-// конвертер char в GameObject
+/**
+ * конвертер char в GameObject
+ */
 public class GameObjectConverter {
     private static HashMap<Character, BiFunction<Integer, Integer, GameObject>> factoryGameObject =
             new HashMap<Character, BiFunction<Integer, Integer, GameObject>>() {{
@@ -13,7 +15,11 @@ public class GameObjectConverter {
                 put('@', Hero::new);
             }};
 
-    // по данному char возвращает конструктор соответствующего GameObject
+    /**
+     // по данному char возвращает конструктор соответствующего GameObject
+     * @param c
+     * @return from function to constructor of GameObject
+     */
     public static BiFunction<Integer, Integer, GameObject> fromChar(char c) {
         return factoryGameObject.get(c);
     }

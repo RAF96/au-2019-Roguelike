@@ -4,7 +4,9 @@ import com.roguelike.softwaredesign.au2019.controller.CommonController;
 import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
 
 
-// модель игры: карта + игрок
+/**
+ * модель игры: карта + игрок
+ */
 public class Model {
     private Grid grid;
     private ViewGameObject hero = new ViewGameObject(CommonController.Settings.HEROROW, CommonController.Settings.HEROCOL);
