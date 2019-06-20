@@ -4,10 +4,16 @@ import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.GameObject;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.GameObjectConverter;
 
 
-// конвертер объектов карты в char и обратно
+/**
+ * конвертер объектов карты в char и обратно
+ */
 public class GridConverter {
 
-    // char -> GameObject
+    /**
+     * char -> GameObject
+     * @param data
+     * @return
+     */
     static public GameObject[][] from2dArray(char[][] data) {
         GameObject[][] result = new GameObject[data.length][data[0].length];
         for (int i = 0; i < data.length; i++) {
@@ -19,7 +25,11 @@ public class GridConverter {
         return result;
     }
 
-    // GameObject -> char
+    /**
+     * GameObject -> char
+     * @param data
+     * @return
+     */
     static public char[][] to2dArray(GameObject[][] data) {
         char[][] result = new char[data.length][data[0].length];
         for (int i = 0; i < data.length; i++) {

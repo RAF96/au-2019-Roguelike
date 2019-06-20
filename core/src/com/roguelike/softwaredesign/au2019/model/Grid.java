@@ -9,7 +9,9 @@ import com.roguelike.softwaredesign.au2019.model.Internal.ViewHero;
 import java.util.*;
 
 
-// карта игры
+/**
+ * карта игры
+ */
 public class Grid {
     private int step = 0;
     private int numRow;
@@ -17,14 +19,23 @@ public class Grid {
     private GameObject[][] data;
     private Set<Mob> mobs;
 
-    // инициализация карты сгенерированными границами
+    /**
+     * инициализация карты сгенерированными границами
+     * @param row
+     * @param col
+     */
     public Grid(int row, int col) {
         char[][] gameMap = new GameMap(CommonController.Settings.BORDER, CommonController.Settings.SPACE, row, col).getMap();
         initialize(row, col, gameMap);
         define();
     }
 
-    // инициализация карты границами, загруженными из файла
+    /**
+     * инициализация карты границами, загруженными из файла
+     * @param path
+     * @param row
+     * @param col
+     */
     public Grid(String path, int row, int col, boolean isEmpty) {
         char[][] gameMap = new GameMap(path, CommonController.Settings.BORDER, CommonController.Settings.SPACE, row, col).getMap();
         if (isEmpty) {
@@ -70,8 +81,6 @@ public class Grid {
     // передвижение героя
     public ViewHero moveHero(int row, int col, String towards, boolean isConfused) {
         if (data[row][col].isHero()) {
-//            System.out.println("HERO----------");
-//            System.out.println(isConfused);
             Hero hero = (Hero) data[row][col];
             ViewGameObject heroPos;
             if (isConfused) {
@@ -106,6 +115,7 @@ public class Grid {
         return null;
     }
 
+
     private boolean isValidPos(int row, int col) {
         return row < numRow && col < numCol && row > 0 && col > 0;
     }
@@ -114,7 +124,6 @@ public class Grid {
         ViewGameObject viewObj = movable.nextPos(towards);
         int newRow = viewObj.getRow();
         int newCol = viewObj.getCol();
-//        System.out.println(movable.getClass() + " " + new Integer(newRow) + " " + new Integer(newCol));
         if (isValidPos(newRow, newCol)) {
             if (data[newRow][newCol].isSpace()) {
                 GameObject movedObj = data[row][col].updatePos(newRow, newCol);
@@ -132,11 +141,9 @@ public class Grid {
             }
 
             if (data[newRow][newCol].isFighter()) {
-//                System.out.println("FIGHT!!");
-//                System.out.println(data[row][col].getClass().toString() + " " + new Integer(row) + " " + new Integer(col));
-//                System.out.println(data[newRow][newCol].getClass().toString() + " " + new Integer(newRow) + " " + new Integer(newCol));
                 Fighter iam = (Fighter) data[row][col];
                 Fighter fighter = (Fighter) data[newRow][newCol];
+
                 if (iam.fight(fighter)) {
                     GameObject movedObj = data[row][col].updatePos(newRow, newCol);
                     data[row][col] = new Space(' ', row, col);
@@ -151,17 +158,26 @@ public class Grid {
         return null;
     }
 
-    // перевести объекты карты в массив char'ов
+    /**
+     * перевести объекты карты в массив char'ов
+     * @return char[][]
+     */
     public char[][] getData() {
         return GridConverter.to2dArray(data);
     }
 
-    // вернуть высоту
+    /**
+     * вернуть высоту
+     * @return int
+     */
     public int getNumRow() {
         return numRow;
     }
 
-    // вернуть ширину
+    /**
+     * вернуть ширину
+     * @return int
+     */
     public int getNumCol() {
         return numCol;
     }

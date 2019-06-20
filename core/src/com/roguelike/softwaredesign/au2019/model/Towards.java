@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-// движение в пространстве по вертикали и по горизонтали
+/**
+ * движение в пространстве по вертикали и по горизонтали
+ */
 public class Towards {
     static private Map<String, Integer> deltaColumn = new HashMap<String, Integer>() {{
         put("LEFT", -1);
@@ -22,12 +24,19 @@ public class Towards {
         put("HERE", 0);
     }};
 
-    // изменение строки
+
+    /**
+     * @param towards
+     * @return направление по строке
+     */
     public static Integer getDeltaRow(String towards) {
         return deltaRow.get(towards);
     }
 
-    // изменение столбца
+    /**
+     * @param towards
+     * @return направление по колонке
+     */
     public static Integer getDeltaColumn(String towards) {
         return deltaColumn.get(towards);
     }

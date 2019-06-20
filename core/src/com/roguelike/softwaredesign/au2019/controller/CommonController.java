@@ -15,14 +15,18 @@ import com.roguelike.softwaredesign.au2019.view.CommonView;
 import java.io.File;
 
 
-// класс инициализации и отрисовки игры
+/**
+ * класс инициализации и отрисовки игры
+ */
 public class CommonController extends ApplicationAdapter {
     private Invoker invoker;
     private Model model;
     private CommonView view;
     private Stage stage;
 
-    // инициализация
+    /**
+     * инициализация
+     */
     @Override
     public void create() {
         view = new CommonView(this);
@@ -32,7 +36,9 @@ public class CommonController extends ApplicationAdapter {
         Gdx.input.setInputProcessor(stage);
     }
 
-    // отрисовка сцены
+    /**
+     * отрисовка сцены
+     */
     @Override
     public void render() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -62,14 +68,19 @@ public class CommonController extends ApplicationAdapter {
         }
     }
 
-    // генерация карты при нажати на кнопку Generate GridView
+    /**
+     * генерация карты при нажати на кнопку Generate Map
+     */
     public void generateMap() {
         model = new Model();
         invoker = new Invoker(model);
         view.set(model.getGrid(), model.getHero());
     }
 
-    // загрузка карты при нажати на кнопку Load GridView
+    /**
+     * загрузка карты при нажати на кнопку Load Map
+     * @param path
+     */
     public void loadMapFromPath(String path) {
         model = new Model(path, true);
         invoker = new Invoker(model);
@@ -82,7 +93,9 @@ public class CommonController extends ApplicationAdapter {
         view.set(model.getGrid(), model.getHero());
     }
 
-    // константы игры
+    /**
+     * константы игры
+     */
     public static class Settings {
         public static int ROWELEM = 15;
         public static int COLELEM = 15;

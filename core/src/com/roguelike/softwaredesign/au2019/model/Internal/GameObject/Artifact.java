@@ -1,7 +1,9 @@
 package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
 
-// объект "артефакт"
+/**
+ * объект "артефакт"
+ */
 public class Artifact implements GameObject {
     private char symb;
     private int row;

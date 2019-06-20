@@ -8,7 +8,9 @@ import java.io.FileOutputStream;
 import java.util.Random;
 
 
-// карта игры
+/**
+ * карта игры
+ */
 public class GameMap {
     private char border;
     private char space;
@@ -16,8 +18,14 @@ public class GameMap {
     private int col;
     private char[][] data;
 
-    // генерирует карту заданного размера
-    // из указанных символов для пустого пространства и границ
+    /**
+     * генерирует карту заданного размера
+     * из указанных символов для пустого пространства и границ
+     * @param border
+     * @param space
+     * @param row
+     * @param col
+     */
     public GameMap(char border, char space, int row, int col) {
         this.border = border;
         this.space = space;
@@ -33,7 +41,14 @@ public class GameMap {
         generateMap();
     }
 
-    // загружает карту с учётом заданных размеров
+    /**
+     * загружает карту с учётом заданных размеров
+     * @param fileName
+     * @param border
+     * @param space
+     * @param row
+     * @param col
+     */
     public GameMap(String fileName, char border, char space, int row, int col) {
         this.border = border;
         this.space = space;
@@ -121,7 +136,10 @@ public class GameMap {
         data = SaveLoadData.loadData(fileName, row, col);
     }
 
-    // возвращает созданную карту
+    /**
+     * возвращает созданную карту
+     * @return
+     */
     public char[][] getMap() {
         return data;
     }

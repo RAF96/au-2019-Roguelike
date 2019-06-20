@@ -1,11 +1,12 @@
 package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
 
-// объект "герой"
-public class Hero extends Fighter {
+/**
+ * объект "герой"
+ */
+public class Hero extends Fighter implements GameObject {
     private BonusPower bonus = new BonusPower(0,0);
     private int level = 0;
-
     private char symb;
 
     public Hero(char symb, int row, int column, int health, int attack) {

@@ -5,7 +5,9 @@ import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
 import com.roguelike.softwaredesign.au2019.model.Towards;
 
 
-// класс всех персонажей
+/**
+ * класс всех персонажей
+ */
 public abstract class Fighter implements GameObject, Movable {
 
     private int row;

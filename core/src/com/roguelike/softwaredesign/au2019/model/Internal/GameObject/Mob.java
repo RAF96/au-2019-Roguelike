@@ -5,7 +5,9 @@ import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.MobAction.A
 import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
 
 
-// персонаж
+/**
+ * объект "персонаж"
+ */
 public class Mob extends Fighter {
 
     private char symb;

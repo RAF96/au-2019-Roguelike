@@ -10,7 +10,9 @@ import java.util.Random;
 import java.util.function.BiFunction;
 
 
-// конвертер char в GameObject
+/**
+ * конвертер char в GameObject
+ */
 public class GameObjectConverter {
     private static Random rand = new Random();
 
@@ -36,7 +38,11 @@ public class GameObjectConverter {
                 put('+', (i, j) -> new Artifact('+', i, j));
             }};
 
-    // по данному char возвращает конструктор соответствующего GameObject
+    /**
+     // по данному char возвращает конструктор соответствующего GameObject
+     * @param c
+     * @return from function to constructor of GameObject
+     */
     public static BiFunction<Integer, Integer, GameObject> fromChar(char c) {
         return factoryGameObject.get(c);
     }

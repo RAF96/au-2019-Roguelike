@@ -7,7 +7,9 @@ import com.roguelike.softwaredesign.au2019.model.Internal.ViewHero;
 import java.util.Random;
 
 
-// модель игры: карта + игрок
+/**
+ * модель игры: карта + игрок
+ */
 public class Model {
     private Grid grid;
     private Random rand = new Random();
