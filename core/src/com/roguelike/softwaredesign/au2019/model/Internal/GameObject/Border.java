@@ -1,7 +1,9 @@
 package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
 
-// объект "препятствие"
+/**
+ * объект "препятствие"
+ */
 public class Border implements GameObject {
     private char symb;
     private int row;

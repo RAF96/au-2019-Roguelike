@@ -11,7 +11,9 @@ import com.roguelike.softwaredesign.au2019.controller.CommonController;
 import com.roguelike.softwaredesign.au2019.model.Grid;
 
 
-// отображает карту игры
+/**
+ * отображает карту игры
+ */
 public class Map extends Group {
 
     private Grid grid;
@@ -20,7 +22,11 @@ public class Map extends Group {
         super();
     }
 
-    // отрисовка
+    /**
+     * отрисовка
+     * @param batch
+     * @param parentAlpha
+     */
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);
@@ -49,7 +55,10 @@ public class Map extends Group {
         }
     }
 
-    // установка карты
+    /**
+     * установка карты
+     * @param grid
+     */
     public void setGrid(Grid grid) {
         this.grid = grid;
     }

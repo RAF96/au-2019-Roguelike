@@ -1,9 +1,10 @@
 package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
 
-// объект "пустое пространство"
+/**
+ * объект "пустое пространство"
+ */
 public class Space implements GameObject {
-
     private char symb;
     private int row;
     private int col;

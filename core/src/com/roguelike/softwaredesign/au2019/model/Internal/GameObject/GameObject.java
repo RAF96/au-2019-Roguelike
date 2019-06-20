@@ -3,7 +3,9 @@ package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
 
 
-// интерфейс всех объектов карты
+/**
+ * интерфейс всех объектов карты
+ */
 public interface GameObject {
     default Boolean isSpace() {
         return false;
