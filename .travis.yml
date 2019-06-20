@@ -1,4 +1,4 @@
-install: gradle wrapper --gradle-version 2.4
+install: gradle wrapper --gradle-version 4.3
 language: java
 jdk:
   - openjdk10
