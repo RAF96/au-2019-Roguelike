@@ -58,7 +58,12 @@ public class CommonController extends ApplicationAdapter {
 
     // загрузка карты при нажати на кнопку Load GridView
     public void loadMapFromPath(String path) {
-        model = new Model(path);
+        model = new Model(path, true);
+        view.set(model.getGrid(), model.getHero());
+    }
+
+    public void loadGameFromPath(String path) {
+        model = new Model(path, false);
         view.set(model.getGrid(), model.getHero());
     }
 

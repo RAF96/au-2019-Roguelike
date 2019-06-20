@@ -82,13 +82,13 @@ public class Entry extends Group {
         loadLast.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                String text = "maps/last";
+                String text = "games/last";
                 boolean fileExist = new File(text).isFile();
                 if (!fileExist) {
                     error.setText("There isn't last game");
                     return ;
                 }
-                commonController.loadMapFromPath(text);
+                commonController.loadGameFromPath(text);
                 Entry.this.addAction(Actions.removeActor(Entry.this));
                 super.clicked(event, x, y);
             }

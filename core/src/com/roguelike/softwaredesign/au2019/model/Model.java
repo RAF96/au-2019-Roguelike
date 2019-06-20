@@ -18,8 +18,8 @@ public class Model {
         hero = grid.getViewHero();
     }
 
-    public Model(String path) {
-        grid = new Grid(path, CommonController.Settings.ROW, CommonController.Settings.COL);
+    public Model(String path, boolean isEmpty) {
+        grid = new Grid(path, CommonController.Settings.ROW, CommonController.Settings.COL, isEmpty);
         hero = grid.getViewHero();
     }
 

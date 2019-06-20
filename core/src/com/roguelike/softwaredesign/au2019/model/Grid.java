@@ -21,12 +21,31 @@ public class Grid {
     public Grid(int row, int col) {
         char[][] gameMap = new GameMap(CommonController.Settings.BORDER, CommonController.Settings.SPACE, row, col).getMap();
         initialize(row, col, gameMap);
+        define();
     }
 
     // инициализация карты границами, загруженными из файла
-    public Grid(String path, int row, int col) {
+    public Grid(String path, int row, int col, boolean isEmpty) {
         char[][] gameMap = new GameMap(path, CommonController.Settings.BORDER, CommonController.Settings.SPACE, row, col).getMap();
-        initialize(row, col, gameMap);
+        if (isEmpty) {
+            initialize(row, col, gameMap);
+        } else {
+            numRow = row;
+            numCol = col;
+            data = GridConverter.from2dArray(gameMap);
+        }
+        define();
+    }
+
+    private void define() {
+        mobs = new HashSet<>();
+        for (int i = 0; i < numRow; i++) {
+            for (int j = 0; j < numCol; j++) {
+                if (data[i][j].isMob()) {
+                    mobs.add((Mob)data[i][j]);
+                }
+            }
+        }
     }
 
     private void initialize(int row, int col, char[][] gameMap) {
@@ -46,15 +65,6 @@ public class Grid {
         }
 
         data = GridConverter.from2dArray(gameMap);
-
-        mobs = new HashSet<>();
-        for (int i = 0; i < numRow; i++) {
-            for (int j = 0; j < numCol; j++) {
-                if (data[i][j].isMob()) {
-                    mobs.add((Mob)data[i][j]);
-                }
-            }
-        }
     }
 
     // передвижение героя
@@ -140,8 +150,6 @@ public class Grid {
         }
         return null;
     }
-
-
 
     // перевести объекты карты в массив char'ов
     public char[][] getData() {
