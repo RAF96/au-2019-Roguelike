@@ -71,4 +71,10 @@
 ## Логическая структура (диаграмма классов)
 ![classDiagram](docs/classDiagram.png)
 
-## Взаимодействия и состояния (диаграммы последовательностей и конечных автоматов)
+
+## Взаимодействия и состояния
+### Диаграмма последовательностей
+![sequenceDiagram](docs/sequenceDiagram.png)
+
+### Диаграмма конечных автоматов
+![finiteStatesDiagram](docs/finiteStatesDiagram.png)
