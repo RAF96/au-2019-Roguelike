@@ -1,5 +1,9 @@
-package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
+package com.roguelike.softwaredesign.au2019.test.model.Internal.GameObject;
 
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Artifact;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Fighter;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Hero;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Mob;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.MobAction.Angry;
 import org.junit.Before;
 import org.junit.Test;
