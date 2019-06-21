@@ -3,10 +3,10 @@ package com.roguelike.softwaredesign.au2019.model.Internal;
 import com.roguelike.softwaredesign.au2019.model.Towards;
 
 public class ViewGameObject {
-    private Integer row;
-    private Integer col;
+    private int row;
+    private int col;
 
-    public ViewGameObject(Integer row, Integer column) {
+    public ViewGameObject(int row, int column) {
         this.row = row;
         this.col = column;
     }
@@ -17,11 +17,11 @@ public class ViewGameObject {
         return this;
     }
 
-    public Integer getRow() {
+    public int getRow() {
         return row;
     }
 
-    public Integer getCol() {
+    public int getCol() {
         return col;
     }
 }

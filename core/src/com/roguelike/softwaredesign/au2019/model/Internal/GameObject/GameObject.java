@@ -1,5 +1,6 @@
 package com.roguelike.softwaredesign.au2019.model.Internal.GameObject;
 
+
 import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
 
 
@@ -24,6 +25,10 @@ public interface GameObject {
     }
 
     default Boolean isMob() { return false; }
+
+    default Boolean isArtifact() {
+        return false;
+    }
 
     char toChar();
 

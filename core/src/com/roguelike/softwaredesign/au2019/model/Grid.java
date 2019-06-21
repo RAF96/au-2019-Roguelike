@@ -3,10 +3,9 @@ package com.roguelike.softwaredesign.au2019.model;
 import com.roguelike.softwaredesign.au2019.controller.CommonController;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameMap;
 import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.*;
-import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Move.Movable;
-import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Move.Spell;
+import com.roguelike.softwaredesign.au2019.model.Internal.GameObject.Move.*;
 import com.roguelike.softwaredesign.au2019.model.Internal.ViewGameObject;
-
+import com.roguelike.softwaredesign.au2019.model.Internal.ViewHero;
 import java.util.*;
 
 
@@ -14,6 +13,7 @@ import java.util.*;
  * карта игры
  */
 public class Grid {
+    private int step = 0;
     private int numRow;
     private int numCol;
     private GameObject[][] data;
@@ -27,6 +27,7 @@ public class Grid {
     public Grid(int row, int col) {
         char[][] gameMap = new GameMap(CommonController.Settings.BORDER, CommonController.Settings.SPACE, row, col).getMap();
         initialize(row, col, gameMap);
+        define();
     }
 
     /**
@@ -35,9 +36,27 @@ public class Grid {
      * @param row
      * @param col
      */
-    public Grid(String path, int row, int col) {
+    public Grid(String path, int row, int col, boolean isEmpty) {
         char[][] gameMap = new GameMap(path, CommonController.Settings.BORDER, CommonController.Settings.SPACE, row, col).getMap();
-        initialize(row, col, gameMap);
+        if (isEmpty) {
+            initialize(row, col, gameMap);
+        } else {
+            numRow = row;
+            numCol = col;
+            data = GridConverter.from2dArray(gameMap);
+        }
+        define();
+    }
+
+    private void define() {
+        mobs = new HashSet<>();
+        for (int i = 0; i < numRow; i++) {
+            for (int j = 0; j < numCol; j++) {
+                if (data[i][j].isMob()) {
+                    mobs.add((Mob)data[i][j]);
+                }
+            }
+        }
     }
 
     private void initialize(int row, int col, char[][] gameMap) {
@@ -51,44 +70,56 @@ public class Grid {
             gameMap[rand.nextInt(numRow - 2) + 1][rand.nextInt(numCol - 2) + 1]  = CommonController.Settings.MOB;
         }
 
-        data = GridConverter.from2dArray(gameMap);
 
-        mobs = new HashSet<>();
-        for (int i = 0; i < numRow; i++) {
-            for (int j = 0; j < numCol; j++) {
-                if (data[i][j].isMob()) {
-                    mobs.add((Mob)data[i][j]);
-                }
-            }
+        for (int i = 0; i < CommonController.Settings.ARTIFACTSUM; i++) {
+            gameMap[rand.nextInt(numRow - 1) + 1][rand.nextInt(numCol - 1) + 1] = CommonController.Settings.ARTEFACT;
         }
+
+        data = GridConverter.from2dArray(gameMap);
     }
 
     // передвижение героя
-    public ViewGameObject moveHero(int row, int col, String towards, boolean isConfused) {
+    public ViewHero moveHero(int row, int col, String towards, boolean isConfused) {
         if (data[row][col].isHero()) {
-            Hero hero = (Hero)data[row][col];
-            ViewGameObject viewHero;
+            Hero hero = (Hero) data[row][col];
+            ViewGameObject heroPos;
             if (isConfused) {
-                viewHero = moveCell(new Spell(hero), row, col, towards);
+                heroPos = moveCell(new Spell(hero), row, col, towards);
             } else {
-                viewHero = moveCell(hero, row, col, towards);
+                heroPos = moveCell(hero, row, col, towards);
             }
+
+            if (heroPos == null) {
+                return null;
+            }
+            ViewHero viewHero = new ViewHero((Hero) data[heroPos.getRow()][heroPos.getCol()]);
 
             Set<Mob> newMobs = new HashSet<>();
             for (Mob mob : mobs) {
-                ViewGameObject newPos = moveCell(mob, mob.getRow(), mob.getCol(), mob.getToward(viewHero));
-                if (newPos != null) {
-                    GameObject gameObject = data[newPos.getRow()][newPos.getCol()];
+                if (!viewHero.isAlife()) return null;
+                if (!data[mob.getRow()][mob.getCol()].isMob()) break;
+                ViewGameObject mobPos = moveCell(mob, mob.getRow(), mob.getCol(), mob.getToward(heroPos));
+                if (mobPos != null) {
+                    GameObject gameObject = data[mobPos.getRow()][mobPos.getCol()];
                     if (gameObject.isMob()) {
                         newMobs.add((Mob) gameObject);
                     }
                 }
             }
             mobs = newMobs;
-            return viewHero;
-        } else {
-            return null;
+
+            if (data[heroPos.getRow()][heroPos.getCol()].isHero()) {
+                viewHero = new ViewHero((Hero) data[heroPos.getRow()][heroPos.getCol()]);
+                step++;
+                if (step % 10 == 0 && viewHero.isAlife()) {
+                    ((Hero) data[viewHero.getRow()][viewHero.getCol()]).levelUp();
+                }
+                if (viewHero.isAlife()) {
+                    return viewHero;
+                }
+            }
         }
+        return null;
     }
 
 
@@ -107,9 +138,19 @@ public class Grid {
                 data[newRow][newCol] = movedObj;
                 return movedObj.getView();
             }
+
+            if (data[newRow][newCol].isArtifact()) {
+                Fighter fighter = (Fighter) data[row][col].updatePos(newRow, newCol);
+                fighter.takeArtifact((Artifact) data[newRow][newCol]);
+                data[row][col] = new Space(' ', row, col);
+                data[newRow][newCol] = fighter;
+                return fighter.getView();
+            }
+
             if (data[newRow][newCol].isFighter()) {
-                Fighter iam = (Fighter)data[row][col];
-                Fighter fighter = (Fighter)data[newRow][newCol];
+                Fighter iam = (Fighter) data[row][col];
+                Fighter fighter = (Fighter) data[newRow][newCol];
+
                 if (iam.fight(fighter)) {
                     GameObject movedObj = data[row][col].updatePos(newRow, newCol);
                     data[row][col] = new Space(' ', row, col);
@@ -121,7 +162,7 @@ public class Grid {
                 }
             }
         }
-        return data[row][col].getView();
+        return new ViewGameObject(row, col);
     }
 
     /**
@@ -146,5 +187,15 @@ public class Grid {
      */
     public int getNumCol() {
         return numCol;
+    }
+
+    public ViewHero getViewHero() {
+        for (int i = 0; i < numRow; i++) {
+            for (int j = 0; j < numCol; j++) {
+                if (data[i][j].isHero())
+                    return new ViewHero((Hero) data[i][j]);
+            }
+        }
+        return null;
     }
 }

@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.roguelike.softwaredesign.au2019.controller.CommonController;
 import com.roguelike.softwaredesign.au2019.model.Grid;
+import com.roguelike.softwaredesign.au2019.model.Internal.ViewHero;
 
 
 /**
@@ -13,15 +14,15 @@ public class CommonView extends Group {
 
     private final CommonController commonController;
     private Entry entry;
-    private Map map;
+    private GridView gridView;
 
     public CommonView(CommonController commonController) {
         super();
         this.commonController = commonController;
         this.entry = new Entry(commonController);
-        this.map = new Map(commonController);
+        this.gridView = new GridView(commonController);
         addActor(entry);
-        addActor(map);
+        addActor(gridView);
     }
 
     /**
@@ -38,7 +39,7 @@ public class CommonView extends Group {
      * установка карты игры
      * @param grid
      */
-    public void setGrid(Grid grid) {
-        map.setGrid(grid);
+    public void set(Grid grid, ViewHero hero) {
+        gridView.set(grid, hero);
     }
 }
