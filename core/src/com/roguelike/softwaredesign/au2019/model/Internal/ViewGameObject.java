@@ -6,7 +6,7 @@ public class ViewGameObject {
     private int row;
     private int col;
 
-    public ViewGameObject(Integer row, Integer column) {
+    public ViewGameObject(int row, int column) {
         this.row = row;
         this.col = column;
     }
