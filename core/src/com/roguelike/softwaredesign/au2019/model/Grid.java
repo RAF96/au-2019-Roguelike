@@ -89,8 +89,15 @@ public class Grid {
                 heroPos = moveCell(hero, row, col, towards);
             }
 
+            if (heroPos == null) {
+                return null;
+            }
+            ViewHero viewHero = new ViewHero((Hero) data[heroPos.getRow()][heroPos.getCol()]);
+
             Set<Mob> newMobs = new HashSet<>();
             for (Mob mob : mobs) {
+                if (!viewHero.isAlife()) return null;
+                if (!data[mob.getRow()][mob.getCol()].isMob()) break;
                 ViewGameObject mobPos = moveCell(mob, mob.getRow(), mob.getCol(), mob.getToward(heroPos));
                 if (mobPos != null) {
                     GameObject gameObject = data[mobPos.getRow()][mobPos.getCol()];
@@ -101,8 +108,8 @@ public class Grid {
             }
             mobs = newMobs;
 
-            if (heroPos != null) {
-                ViewHero viewHero = new ViewHero((Hero) data[heroPos.getRow()][heroPos.getCol()]);
+            if (data[heroPos.getRow()][heroPos.getCol()].isHero()) {
+                viewHero = new ViewHero((Hero) data[heroPos.getRow()][heroPos.getCol()]);
                 step++;
                 if (step % 10 == 0 && viewHero.isAlife()) {
                     ((Hero) data[viewHero.getRow()][viewHero.getCol()]).levelUp();
@@ -155,7 +162,7 @@ public class Grid {
                 }
             }
         }
-        return null;
+        return new ViewGameObject(row, col);
     }
 
     /**
