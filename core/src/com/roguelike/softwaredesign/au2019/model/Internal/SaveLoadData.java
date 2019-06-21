@@ -10,6 +10,7 @@ public class SaveLoadData {
     static public void saveData(String fileName, int row, int col, char[][] data) {
         File file = new File(fileName);
         try {
+            file.getParentFile().mkdirs();
             file.createNewFile();
             FileOutputStream dataOut = new FileOutputStream(file);
             dataOut.write(row);
