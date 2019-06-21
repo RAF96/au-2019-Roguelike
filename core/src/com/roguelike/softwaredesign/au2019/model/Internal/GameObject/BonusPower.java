@@ -14,7 +14,7 @@ public class BonusPower {
         bonusAttack += random.nextInt(MAX_BONUS_ATTACK);
     }
 
-    BonusPower(int health, int attack) {
+    public BonusPower(int health, int attack) {
         bonusHealh += health % MAX_BONUS_HEALTH;
         bonusAttack += attack % MAX_BONUS_ATTACK;
     }

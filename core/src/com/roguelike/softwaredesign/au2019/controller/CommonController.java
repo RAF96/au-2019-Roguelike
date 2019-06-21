@@ -116,7 +116,7 @@ public class CommonController extends ApplicationAdapter {
         public static int HEROROW = 20;
         public static int HEROCOL = 20;
 
-        public static int MOBSNUM = 10;
+        public static int MOBSNUM = 40;
         public static final int ARTIFACTSUM = 5;
     }
 }
